@@ -1,8 +1,10 @@
 import './App.css'
+import { RootRouter } from './pages/routs'
+
 function App() {
   return (
-    <><p>oi</p>
-      <p>ola</p>
+    <>
+      <RootRouter />
     </>
   )
 }
