@@ -15,13 +15,13 @@ function Root() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/environments" element={<Environments />} />
-                <Route path="/log_page" element={<LogPage />} />
-                <Route path="/product_information" element={<ProductInformation />} />
                 <Route path="/production_materials" element={<ProductionMaterials />} />
+                <Route path="/product_information" element={<ProductInformation />} />
                 <Route path="/registration_page" element={<RegistrationPage />} />
                 <Route path="/shopping_cart" element={<ShoppingCart />} />
+                <Route path="/environments" element={<Environments />} />
+                <Route path="/log_page" element={<LogPage />} />
+                <Route path="/" element={<HomePage />} />
             </Routes>
         </>
     )
