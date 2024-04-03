@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Head } from "../../components/head.tsx";
+import { Header } from "../../components/header/header.tsx";
 
 export function HomePage() {
     return (
         <>
-            <Head />
+            <Header />
             <h1>Essa é a página inicial</h1>
             <Link to="/log_page" />
             <Link to="/environments" />
