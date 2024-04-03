@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
-import { SrcInput } from '../srcImput/SrcInput';
+import { SrcInput } from '../srcInput/SrcInput';
 
 export const Header: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');

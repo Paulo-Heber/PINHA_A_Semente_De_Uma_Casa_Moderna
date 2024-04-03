@@ -1,15 +1,12 @@
-import { Link } from "react-router-dom";
+import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
 
 export function ProductionMaterials() {
     return (
         <>
-            <h1>página de material de produção</h1>
-            <Link to="/" />
-            <Link to="/environments" />
-            <Link to="/log_page" />
-            <Link to="/product_information" />
-            <Link to="/registration_page" />
-            <Link to="/shopping_cart" />
+            <h1>página de materiais de produção</h1>
+{/* --------------------SERÁ EXCLUIDO-------------- */}
+            <Navegation />
+{/* --------------------SERÁ EXCLUIDO-------------- */}
         </>
     )
 }
