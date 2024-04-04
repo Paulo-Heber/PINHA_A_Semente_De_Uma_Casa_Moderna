@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import { SrcInput } from '../srcInput/SrcInput';
+import logo from '../../img/logo.png'
 
 export const Header: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');
