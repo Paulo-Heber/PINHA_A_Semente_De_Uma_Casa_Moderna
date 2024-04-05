@@ -1,12 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
 import { SrcInput } from '../srcInput/SrcInput';
-import styled from 'styled-components';
-import logo from "../../img/logo.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faCircleUser } from '@fortawesome/free-solid-svg-icons';
-
-
-
 
 export const Header: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');
