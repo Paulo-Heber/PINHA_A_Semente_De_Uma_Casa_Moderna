@@ -1,5 +1,13 @@
 import React, { useState, ChangeEvent } from 'react';
+
 import { SrcInput } from '../srcInput/SrcInput';
+
+import logoImg from "../../img/logo.png";
+
+import styled from 'styled-components';
+
+import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Header: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');
@@ -13,7 +21,7 @@ export const Header: React.FC = () => {
 
     <Head>
       <Logo>
-        <Badge src={logo} alt="logo" />
+        <Badge src={logoImg} alt="logo" />
         <div>
           <h1>pinha</h1>
           <p>A Semente da casa moderna</p>
@@ -23,9 +31,9 @@ export const Header: React.FC = () => {
         <SrcInput value={pesquisa} onChange={handlePesquisaChange} placeholder="Ex: Cama..." />
       </Searce>
       <UserSpace>
+        <FontAwesomeIcon icon={faShoppingCart} />
+        <FontAwesomeIcon icon={faUserCircle} />
 
-        <FontAwesomeIcon icon={faCartShopping}/>
-        <FontAwesomeIcon icon={faCircleUser}/>
 
       </UserSpace>
     </Head>
