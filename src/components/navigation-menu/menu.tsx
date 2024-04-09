@@ -1,38 +1,41 @@
-//vou ter que ter objetos para acessalos dependendo de qual página estiver sendo carregada na tela um para a navegação da tela inicial e outra para a navegação na parte de ferragens e utensílios
+//devo proucurar uma forma de utilizar input type checkbox para filtrar apenas os móveis que tenham o id igual ao valor do check box selecionado ou ao valor do input de pesquisa.
 
-type pageCategory = {
+type menuStructure = {
     title: string,
-    pageList: string[]
+    filter: string[]
 }
 
 type HomepageMenu = {
-    environments: pageCategory;
-    materials: pageCategory;
+    environments: menuStructure;
+    materials: menuStructure;
 }
 
 const HomepageMenu: HomepageMenu = {
-
     environments: {
         title: 'AMBIENTES',
-        pageList: ['Sala', 'Cozinha', 'Quarto', 'Banheiro', 'Escritório', 'Área de serviço']
+        filter: ['Sala', 'Cozinha', 'Quarto', 'Banheiro', 'Escritório', 'Área de serviço']
     },
 
     materials: {
         title: 'MATERIAIS',
-        pageList: ["mdf's", 'Ferragens']
+        filter: ["mdf's", 'Ferragens']
     }
-
 }
 
 export function Menu() {
     const menuEntries = Object.entries(HomepageMenu);
-
     return (
         <>
             {menuEntries.map(([key, value]) => {
                 const sectionTitle = value.title;
-                const pageList = value.pageList.map((page, key) => {
-                    return <li key={key}>{page}</li>
+                const pageList = value.filter.map((filter, key) => {
+                    return (
+                        <li key={key}>
+                            <label>
+                                <input type="radio" name="filter" />{filter}
+                            </label>
+                        </li>
+                    )
                 })
 
                 return (
@@ -45,5 +48,4 @@ export function Menu() {
             })}
         </>
     )
-
 }
