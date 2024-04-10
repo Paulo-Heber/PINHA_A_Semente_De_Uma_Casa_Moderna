@@ -9,7 +9,7 @@ export function Navegation() {
             <Button to="/product_information"label={"ir para product_information"} />
             <Button to="/production_materials" label={"ir para production_materials"} />
             <Button to="/registration_page" label={"ir para registration_page"}/>
-            <Button to="/shopping_cart" label={"ir para shopping_cart"} />
+            <Button to="/shopping_cart" label={"ir para "} />
         </>
     )
 }
