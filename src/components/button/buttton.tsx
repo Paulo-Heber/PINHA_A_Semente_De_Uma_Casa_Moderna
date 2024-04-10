@@ -2,12 +2,12 @@ import { Link } from "react-router-dom"
 
 interface ButtonProps {
     to: string;
+    label:any;
 }
-
 export function Button(props: ButtonProps) {
     return (
         <Link to={props.to}>
-            <button>ir para {props.to}</button>
+            <button>{props.label}</button>
         </Link>
     )
 }

@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 import { faSearch, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '../button/buttton';
 
 export const Header: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');
@@ -19,20 +20,21 @@ export const Header: React.FC = () => {
 
   return (
     <Head>
-      <Logo>
+      <Button to="/" label={<Logo>
         <Badge src={logoImg} alt="logo" />
         <div>
           <h1>pinha</h1>
           <p>A Semente da casa moderna</p>
         </div>
-      </Logo>
+      </Logo>}/>
+      
       <Searce>
         <SrcInput value={pesquisa} onChange={handlePesquisaChange} placeholder='Ex: Casa' />
         <button><FontAwesomeIcon icon={faSearch} /></button>
       </Searce>
       <UserSpace>
-        <FontAwesomeIcon icon={faShoppingCart} />
-        <UserLog><FontAwesomeIcon icon={faUserCircle} /></UserLog>
+        <Button to="/shopping_cart" label={<FontAwesomeIcon icon={faShoppingCart} />}/>
+        <Button to="/registration_page" label={<FontAwesomeIcon icon={faUserCircle} />}/>
       </UserSpace>
     </Head>
   );
@@ -44,6 +46,12 @@ display:flex;
 justify-content: space-between;
 width: 100%;
 padding:10px;
+&>a{
+  &>*{
+    border:none;
+  background:transparent;
+  }
+}
 `
 const Logo = styled.div`
 display:flex;
@@ -86,17 +94,17 @@ position: relative;
 const UserSpace = styled.div`
 display:flex;
 align-items: center;
+justify-content: space-evenly;
+width:150px;
 &>*{
-  font-size: 40px ;
-  color:#ffff;
-  padding-right:30px;
-  border:none;
-  background:transparent;
-}
-`
-const UserLog = styled.button`
-
-&>*{
-  
+  &>*{
+    font-size: 40px ;
+    color:#ffff;
+    border:none;
+    background:transparent;
+    transition: font-size 0.3s ease;
+  &:hover{
+    font-size:50px
+  }
 }
 `
