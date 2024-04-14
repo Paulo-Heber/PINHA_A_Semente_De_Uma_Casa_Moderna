@@ -6,11 +6,10 @@ export function HomePage() {
     return (
         <>
             <Header />
-            <h1>Essa é a página inicial</h1>
+            <Menu />
             {/* --------------------SERÁ EXCLUIDO-------------- */}
             <Navegation />
             {/* --------------------SERÁ EXCLUIDO-------------- */}
-            <Menu />
         </>
     )
 }
