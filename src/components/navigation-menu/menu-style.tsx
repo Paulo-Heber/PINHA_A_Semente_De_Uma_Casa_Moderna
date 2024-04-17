@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const MenuConteiner = styled.div`
 background-color:#151515;
-max-width:17.3rem;
+min-width:17.3rem;
 color:#ffffff;
 display:flex;
 flex-direction:column;
@@ -22,23 +22,21 @@ min-width:100%;
 text-aling-center;
 `
 const Rooms = styled.li`
-padding:1rem;
 display:flex;
-
-&:hover {
-  border-left:solid .2rem #ffffff;
-  background-color: #272727;
-  cursor:pointer;
-}
 `
+const RoomsLabel = styled.label<{ checked: boolean }>`
+  flex: 1;
+  padding:1rem;
+  background-color: ${(props) => (props.checked ? "#272727" : "#151515")}; 
+  border-left: solid .2rem ${(props) => (props.checked ? "#ffffff" : "#151515")}; 
+  cursor: pointer;
 
-const RoomsLabel = styled.label`
-flex:1;
-
-&:hover {
-  cursor:pointer;
-}
-`
+  &:hover {
+    border-left:solid .2rem #ffffff;
+    background-color: #272727;
+    cursor:pointer;
+  }
+`;
 
 const RoomSelector = styled.input`
 display:none;

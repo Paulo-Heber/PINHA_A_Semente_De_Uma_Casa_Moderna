@@ -30,12 +30,12 @@ export function Menu() {
     const [selectedFilter, setSelectedFilter] = useState<string>('')
 
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
-    const clicou = (room: string) => {
+    const selectRoom = (room: string) => {
         setSelectedFilter(room)
     }
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
 
-    useEffect(() => { console.log(`cliclou em:${selectedFilter}`); }, [selectedFilter])
+  
     
     return (
         <MenuConteiner>
@@ -43,8 +43,8 @@ export function Menu() {
                 const sectionTitle = value.title;
                 const RoomsList = value.rooms.map((room, index) => {
                     return (
-                        <Rooms key={index} onClick={() => clicou(room)}>
-                            <RoomsLabel >
+                        <Rooms key={index} onClick={() => selectRoom(room)}>
+                            <RoomsLabel checked={room===selectedFilter}>
                                 <RoomSelector type="radio" name="filter" value={room} />{room}
                             </RoomsLabel>
                         </Rooms>
