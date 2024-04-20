@@ -16,7 +16,6 @@ export function HomePage() {
                 <ProductCard />
                 <ProductCard />
                 <ProductCard />
-
             </ProductsSection>
             {/* --------------------SERÁ EXCLUIDO-------------- */}
             <Navegation />
