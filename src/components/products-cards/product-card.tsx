@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import bedImg from '../../img/cama.jpg'
+import { FornitureImg } from './product-card-style';
 
 type productCardInfos = {
     name: string;
@@ -7,7 +9,7 @@ type productCardInfos = {
     img: string;
 }
 
-const productCardInfos:productCardInfos= {
+const productCardInfos: productCardInfos = {
     name: 'oi',
     price: 15,
     value: 'ased',
@@ -16,6 +18,8 @@ const productCardInfos:productCardInfos= {
 
 export const ProductCard = () => {
     return (
-        <img src={bedImg} alt="imagen do móvel" />
+        <Link to='/product_information'>
+            <FornitureImg src={bedImg} alt="imagen do móvel" />
+        </Link>
     )
 }

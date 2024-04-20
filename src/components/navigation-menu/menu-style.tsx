@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 const MenuConteiner = styled.div`
+grid-area:navegation;
 background-color:#151515;
-min-width:17.3rem;
 color:#ffffff;
 display:flex;
 flex-direction:column;
 padding:1.5rem; 
-height:100vh;
+height:calc(100vh - 9rem);
 gap:5px;
+top:9rem;
 `
 
 const Title = styled.h2`
