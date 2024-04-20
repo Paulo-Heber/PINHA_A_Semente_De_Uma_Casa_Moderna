@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RoomSelector, Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title } from "./menu-style";
 
 type menuStructure = {
@@ -25,7 +25,7 @@ const HomepageMenu: HomepageMenu = {
 
 
 export function Menu() {
-    
+
     const menuEntries = Object.entries(HomepageMenu);
     const [selectedFilter, setSelectedFilter] = useState<string>('')
 
@@ -35,8 +35,8 @@ export function Menu() {
     }
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
 
-  
-    
+
+
     return (
         <MenuConteiner>
             {menuEntries.map(([key, value]) => {
@@ -44,7 +44,7 @@ export function Menu() {
                 const RoomsList = value.rooms.map((room, index) => {
                     return (
                         <Rooms key={index} onClick={() => selectRoom(room)}>
-                            <RoomsLabel checked={room===selectedFilter}>
+                            <RoomsLabel checked={room === selectedFilter}>
                                 <RoomSelector type="radio" name="filter" value={room} />{room}
                             </RoomsLabel>
                         </Rooms>
