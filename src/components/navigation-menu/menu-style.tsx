@@ -1,19 +1,27 @@
 import styled from "styled-components";
+import { colors } from "../variables/variables";
 
 const MenuConteiner = styled.div`
-grid-area:navegation;
-background-color:#151515;
-color:#ffffff;
-display:flex;
-flex-direction:column;
-padding:1.5rem; 
-height:calc(100vh - 9rem);
-gap:5px;
-top:9rem;
-`
+  grid-area:navegation;
+  background-color:${colors.secondaryColor};
+  color:#ffffff;
+  display:flex;
+  flex-direction:column;
+  padding:4.2rem 1.5rem; 
+  max-height:79.7vh;
+  gap:2rem;
+  top:9rem;
+  overflow-y:scroll;
+
+  &::-webkit-scrollbar {
+   display:none;
+  }
+  `
 
 const Title = styled.h2`
   align-self: center;
+  margin-bottom:.4rem;
+  font-size:2rem;
 `
 
 const MenuFilters = styled.div`
@@ -24,6 +32,9 @@ text-aling-center;
 `
 const Rooms = styled.li`
 display:flex;
+margin-bottom:1.6rem;
+color:#ffffff;
+font-size:3.2rem;
 `
 const RoomsLabel = styled.label<{ checked: boolean }>`
   flex: 1;
@@ -42,5 +53,8 @@ const RoomsLabel = styled.label<{ checked: boolean }>`
 const RoomSelector = styled.input`
 display:none;
 `
+
+
+
 
 export { MenuConteiner, MenuFilters, Title, RoomSelector, RoomsLabel, Rooms }

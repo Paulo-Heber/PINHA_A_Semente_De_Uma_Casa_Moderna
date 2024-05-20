@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import bedImg from '../../img/cama.jpg'
 import { FornitureImg } from './product-card-style';
+import { FeaturedImg } from '../../pages/home/home-page-style';
 
 type productCardInfos = {
     name: string;
@@ -23,3 +24,12 @@ export const ProductCard = () => {
         </Link>
     )
 }
+
+export const FeaturedProducts = () => {
+    return (
+        <Link to='/'>
+            <FeaturedImg src={bedImg}/>
+        </Link>
+    )
+}
+

@@ -1,14 +1,20 @@
 import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
+import { AssemblyProductsCard } from "../../components/assembly-products-card/assembly-products-card";
 import { Header } from "../../components/header/header";
+import { Materials, ProductionMaterialsConteiner, Summary } from "./production_materials_style";
 
 export function ProductionMaterials() {
     return (
-        <>
+        <ProductionMaterialsConteiner>
             <Header />
-            <h1>página de materiais de produção</h1>
-{/* --------------------SERÁ EXCLUIDO-------------- */}
-            <Navegation />
-{/* --------------------SERÁ EXCLUIDO-------------- */}
-        </>
+            <Materials>
+                <h2>Ferragens e utensílios de montagem</h2>
+                <AssemblyProductsCard />
+            </Materials>
+            <Summary />
+        </ProductionMaterialsConteiner>
     )
 }
+{/* --------------------SERÁ EXCLUIDO-------------- */ }
+{/* <Navegation /> */ }
+{/* --------------------SERÁ EXCLUIDO-------------- */ }

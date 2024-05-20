@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RoomSelector, Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title } from "./menu-style";
+import { Link } from "react-router-dom";
 
 type menuStructure = {
     title: string,
@@ -41,16 +42,30 @@ export function Menu() {
         <MenuConteiner>
             {menuEntries.map(([key, value]) => {
                 const sectionTitle = value.title;
-                const RoomsList = value.rooms.map((room, index) => {
-                    return (
-                        <Rooms key={index} onClick={() => selectRoom(room)}>
-                            <RoomsLabel checked={room === selectedFilter}>
-                                <RoomSelector type="radio" name="filter" value={room} />{room}
-                            </RoomsLabel>
-                        </Rooms>
-                    )
 
+                const RoomsList = value.rooms.map((room, index) => {
+                    
+                    if (room === 'Ferragens') {
+                        return (
+                            <Link to={'/production_materials'}>
+                                <Rooms key={index} onClick={() => selectRoom(room)}>
+                                    <RoomsLabel checked={room === selectedFilter}>
+                                        <RoomSelector type="radio" name="filter" value={room} />{room}
+                                    </RoomsLabel>
+                                </Rooms>
+                            </Link>
+                        )
+                    } else {
+                        return (
+                            <Rooms key={index} onClick={() => selectRoom(room)}>
+                                <RoomsLabel checked={room === selectedFilter}>
+                                    <RoomSelector type="radio" name="filter" value={room} />{room}
+                                </RoomsLabel>
+                            </Rooms>
+                        )
+                    }
                 })
+
 
                 return (
                     <MenuFilters key={key}>

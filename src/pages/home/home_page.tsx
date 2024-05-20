@@ -1,24 +1,39 @@
 import { Header } from "../../components/header/header.tsx";
-import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido.tsx";
 import { Menu } from "../../components/navigation-menu/menu.tsx";
 
-import { HomePageConteiner, ProductsSection } from "./home-page-style.tsx";
-import { ProductCard } from "../../components/products-cards/product-card.tsx";
+import { FeaturedSection, HomePageConteiner, ProductCardSection, ProductCarousel, ProductsSection } from "./home-page-style.tsx";
+import { FeaturedProducts, ProductCard } from "../../components/products-cards/product-card.tsx";
+import { InputRadio } from "../../components/input-radios/input-radio.tsx";
 export function HomePage() {
     return (
         <HomePageConteiner>
             <Header />
             <Menu />
             <ProductsSection>
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
+                <FeaturedSection>
+                    <ProductCarousel>
+                        <FeaturedProducts />
+                        <FeaturedProducts />
+                        <FeaturedProducts />
+                    </ProductCarousel>
+                    <div>
+                        <InputRadio name="highlightsCarousel" type="radio" checked />
+                        <InputRadio name="highlightsCarousel" type="radio" />
+                        <InputRadio name="highlightsCarousel" type="radio" />
+                        <InputRadio name="highlightsCarousel" type="radio" />
+                    </div>
+                </FeaturedSection>
+                <ProductCardSection>
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                </ProductCardSection>
             </ProductsSection>
             {/* --------------------SERÁ EXCLUIDO-------------- */}
-            <Navegation />
+            {/* <Navegation /> */}
             {/* --------------------SERÁ EXCLUIDO-------------- */}
         </HomePageConteiner>
     )
