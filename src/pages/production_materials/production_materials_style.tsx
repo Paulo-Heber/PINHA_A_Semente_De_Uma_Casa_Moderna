@@ -22,8 +22,5 @@ export const Materials = styled.div`
     }
 `
 
-export const Summary = styled.div`
-    grid-area:summary;
-    background-color:${colors.secondaryColor};
-`
+
 

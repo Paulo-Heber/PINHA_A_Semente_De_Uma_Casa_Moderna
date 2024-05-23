@@ -1,7 +1,9 @@
 import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
 import { AssemblyProductsCard } from "../../components/assembly-products-card/assembly-products-card";
 import { Header } from "../../components/header/header";
-import { Materials, ProductionMaterialsConteiner, Summary } from "./production_materials_style";
+import { Summary } from "../../components/summary/summary";
+
+import { Materials, ProductionMaterialsConteiner } from "./production_materials_style";
 
 export function ProductionMaterials() {
     return (
