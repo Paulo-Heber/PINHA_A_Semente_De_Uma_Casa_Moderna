@@ -6,6 +6,7 @@ export const AssemblyProductsConteiner = styled.div`
     width:55%;
     height:31%;
     display:flex;
+    margin-bottom:1.9rem;
 
 & > :first-child{
     width:54%;

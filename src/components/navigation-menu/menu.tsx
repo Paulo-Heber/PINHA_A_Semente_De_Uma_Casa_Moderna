@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { RoomSelector, Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title } from "./menu-style";
+import { Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title, MaterialList, FilterSelector } from "./menu-style";
 import { Link } from "react-router-dom";
 
 type menuStructure = {
     title: string,
-    rooms: string[]
+    rooms: string[],
+    material?: string[]
 }
 
 type HomepageMenu = {
@@ -20,10 +21,14 @@ const HomepageMenu: HomepageMenu = {
 
     materials: {
         title: 'MATERIAIS',
-        rooms: ["mdf's", 'Ferragens']
+        rooms: ["mdf's", 'Ferragens'],
+        material: ["Material1", "Material2", "Material3", "Material4", "Material5"]
     }
 }
 
+const RetornoDaAPI = {
+    nome: ["Material1", "Material2", "Material3", "Material4", "Material5", "Material6","Material7"]
+}
 
 export function Menu() {
 
@@ -36,45 +41,61 @@ export function Menu() {
     }
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
 
+    const PageID = window.location.pathname;
+    console.log(PageID);
+
+    let UtensiliosDeMontagem = RetornoDaAPI.nome.map((material) => { return <li>{material}</li> });
 
 
-    return (
-        <MenuConteiner>
-            {menuEntries.map(([key, value]) => {
-                const sectionTitle = value.title;
 
-                const RoomsList = value.rooms.map((room, index) => {
-                    
-                    if (room === 'Ferragens') {
-                        return (
-                            <Link to={'/production_materials'}>
+    if (PageID === '/') {
+        return (
+            <MenuConteiner>
+                {menuEntries.map(([key, value]) => {
+                    const sectionTitle = value.title;
+
+                    const RoomsList = value.rooms.map((room, index) => {
+
+                        if (room === 'Ferragens') {
+                            return (
+                                <Link to={'/production_materials'}>
+                                    <Rooms key={index} onClick={() => selectRoom(room)}>
+                                        <RoomsLabel checked={room === selectedFilter}>
+                                            <FilterSelector type="radio" name="filter" value={room} />{room}
+                                        </RoomsLabel>
+                                    </Rooms>
+                                </Link>
+                            )
+                        } else {
+                            return (
                                 <Rooms key={index} onClick={() => selectRoom(room)}>
                                     <RoomsLabel checked={room === selectedFilter}>
-                                        <RoomSelector type="radio" name="filter" value={room} />{room}
+                                        <FilterSelector type="radio" name="filter" value={room} />{room}
                                     </RoomsLabel>
                                 </Rooms>
-                            </Link>
-                        )
-                    } else {
-                        return (
-                            <Rooms key={index} onClick={() => selectRoom(room)}>
-                                <RoomsLabel checked={room === selectedFilter}>
-                                    <RoomSelector type="radio" name="filter" value={room} />{room}
-                                </RoomsLabel>
-                            </Rooms>
-                        )
-                    }
-                })
+                            )
+                        }
+                    })
 
 
-                return (
-                    <MenuFilters key={key}>
-                        <Title> {sectionTitle}</Title>
-                        <ul>{RoomsList}</ul>
-                    </MenuFilters>
-                )
+                    return (
+                        <MenuFilters key={key}>
+                            <Title> {sectionTitle}</Title>
+                            <ul>{RoomsList}</ul>
+                        </MenuFilters>
+                    )
 
-            })}
-        </MenuConteiner>
-    )
+                })}
+            </MenuConteiner>)
+    } else if ('/production_materials') {
+        return (
+            <MenuConteiner>
+                <Title>SUMÁRIO</Title>
+                <MaterialList >
+                    {UtensiliosDeMontagem}
+                </MaterialList>
+            </MenuConteiner>
+        )
+    }
 }
+

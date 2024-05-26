@@ -1,20 +1,25 @@
 import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
 import { AssemblyProductsCard } from "../../components/assembly-products-card/assembly-products-card";
 import { Header } from "../../components/header/header";
-import { Summary } from "../../components/summary/summary";
+import { Menu } from "../../components/navigation-menu/menu";
 
-import { Materials, ProductionMaterialsConteiner } from "./production_materials_style";
+import { MaterialsContainer, ProductionMaterialsPage } from "./production_materials_style";
 
 export function ProductionMaterials() {
     return (
-        <ProductionMaterialsConteiner>
+        <ProductionMaterialsPage>
             <Header />
-            <Materials>
+            <MaterialsContainer>
                 <h2>Ferragens e utensílios de montagem</h2>
                 <AssemblyProductsCard />
-            </Materials>
-            <Summary />
-        </ProductionMaterialsConteiner>
+                <AssemblyProductsCard />
+                <AssemblyProductsCard />
+                <AssemblyProductsCard />
+                <AssemblyProductsCard />
+                <AssemblyProductsCard />
+            </MaterialsContainer>
+            <Menu/>
+        </ProductionMaterialsPage>
     )
 }
 {/* --------------------SERÁ EXCLUIDO-------------- */ }
