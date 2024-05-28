@@ -1,14 +1,15 @@
-import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
 import { Header } from "../../components/header/header";
+import { ProductsInCart } from "../../components/products-in-cart/products_in_cart";
+import { CartContainer, ShoppingCartContainer } from "./shopping_cart_style";
 
 export function ShoppingCart() {
     return (
-        <>
+        <ShoppingCartContainer>
             <Header />
-            <h1>carrinho</h1>
-            {/* --------------------SERÁ EXCLUIDO-------------- */}
-            <Navegation />
-            {/* --------------------SERÁ EXCLUIDO-------------- */}
-        </>
+            <CartContainer>
+                <h2>CARRINHO</h2>
+                <ProductsInCart />
+            </CartContainer>
+        </ShoppingCartContainer>
     )
 }

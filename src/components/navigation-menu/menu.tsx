@@ -27,7 +27,7 @@ const HomepageMenu: HomepageMenu = {
 }
 
 const RetornoDaAPI = {
-    nome: ["Material1", "Material2", "Material3", "Material4", "Material5", "Material6","Material7"]
+    nome: ["Material1", "Material2", "Material3", "Material4", "Material5", "Material6","Material7", "Material8"]
 }
 
 export function Menu() {
