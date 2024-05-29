@@ -40,9 +40,11 @@ export const QuantityButtonContainer = styled.div`
     border-radius:.5rem;
     margin-top:.8rem;
     align-items:center;
+   
     
     & > * {
-        color:#ffffff;
+        color:${colors.tertiaryColor};
+         font-weight:bold;
     }
 
     & > :first-child{

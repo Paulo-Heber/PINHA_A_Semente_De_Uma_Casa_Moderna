@@ -19,11 +19,28 @@ grid-area:cart-container;
 background-color:${colors.tertiaryColor};
 text-align:center;
 padding:2.7rem 7.7rem 0 7.7rem;
+overflow-y:scroll;
+
+&::-webkit-scrollbar {
+    width: 1.2rem; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${colors.tertiaryColor};
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color:${colors.secondaryColor};
+    border-radius: 10px;
+    border: 3px solid ${colors.tertiaryColor};
+  }
 `
 
 export const ProductsInCartContainer = styled.div`
 display: flex;
-border-block: 1px solid;
+justify-content: space-between;
+max-height:29rem;
+border-top: 1px solid;
 font-size:5rem;
 margin-top:1.2%;
 height:59.4%;
@@ -35,7 +52,6 @@ text-align:start;
     height:93%;
     border:solid 4px  #575151;
     box-shadow:11px 11px 10px .1px #151515;
-    margin-right:11%;
    }
 
 & > :last-child{
@@ -51,14 +67,34 @@ text-align:start;
 export const FornitureInfos = styled.div`
 display: flex;
 flex-direction: column;
-line-height:3.4rem;
+line-height:3rem;
 width:23%;
-margin-right:29.5%;
+margin-right:18%;
 font-weight:bold;
 font-size:3rem;
 letter-spacing:.01rem;
 
 & > :nth-child(5){
     color: ${colors.fourthColor};
+    font-size:2.5rem;
+}
+& > :nth-child(6){
+    font-size:1.6rem;
+    color:#575151;
+}
+`
+
+export const ColorMaterialContainer = styled.div`
+display:flex;
+font-size:3rem;
+align-items:center;
+
+& > :last-child{
+    margin-left:2rem;
+    border: 2px solid ${colors.secondaryColor};
+    width:11%;
+    background-color:#549854;
+    border-radius:.5rem;
+    height:95%;
 }
 `

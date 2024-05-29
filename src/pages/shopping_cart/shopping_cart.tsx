@@ -9,6 +9,7 @@ export function ShoppingCart() {
             <CartContainer>
                 <h2>CARRINHO</h2>
                 <ProductsInCart />
+                <ProductsInCart />
             </CartContainer>
         </ShoppingCartContainer>
     )

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import bedImg from '../../img/cama.jpg'
-import { FornitureInfos, ProductsInCartContainer } from '../../pages/shopping_cart/shopping_cart_style'
+import { ColorMaterialContainer, FornitureInfos, ProductsInCartContainer } from '../../pages/shopping_cart/shopping_cart_style'
 import { QuantityButtonSelector } from '../button/buttton'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,13 +14,13 @@ export const ProductsInCart = () => {
                 <p>Nome do móvel</p>
                 <p>id</p>
                 <p>Forma de pagamento</p>
-                <div>
-                    <p>cor:</p>
+                <ColorMaterialContainer>
+                    <p>Cor:</p>
                     <span></span>   
-                </div>
+                </ColorMaterialContainer>
                 <p>R$ 15,00</p>
                 <p>Ou 15x de R$ 1,00</p>
-                <QuantityButtonSelector label="Finalizar Pedido" />
+                <QuantityButtonSelector label="FINALIZAR PEDIDO" />
             </FornitureInfos>
             
             <FontAwesomeIcon icon={faTrashAlt} />
