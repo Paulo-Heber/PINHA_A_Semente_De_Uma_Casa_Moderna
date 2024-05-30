@@ -1,10 +1,10 @@
 import { Header } from "../../components/header/header";
-import { AvailableColors, MainView, PorductsInformationConteiner, Price, ProductDetails, ProductDetailsContainer, ProductPreview, ProductsConteiner, SecondaryViews } from "./product-information-style";
+import { AvailableColors, MainView, PorductsInformationConteiner, Price, ProductDetails, ProductDetailsContainer, ProductPreview, ProductsConteiner, ProductsInformationPageDetails, SecondaryViews } from "./product-information-style";
 import cama from '../../img/cama.jpg'
 
 export function ProductInformation() {
     return (
-        <>
+        <ProductsInformationPageDetails>
             <Header />
             <ProductsConteiner>
                 <h1>Aqui ficará o nome do móvel vindo da API</h1>
@@ -21,7 +21,7 @@ export function ProductInformation() {
                     </ProductPreview>
                     <ProductDetailsContainer>
                         <ProductDetails>
-                            <h2 className="titul">cores disponiveis</h2>
+                            <h2 className="titulo">cores disponiveis</h2>
                             <AvailableColors className="cores">
                                 <img src={cama} alt="imagem da cor (vem da api)" />
                                 <img src={cama} alt="imagem da cor (vem da api)" />
@@ -35,12 +35,13 @@ export function ProductInformation() {
                             <button>adicionar ao carrinho</button>
                         </ProductDetails>
                     </ProductDetailsContainer>
+                    
                 </PorductsInformationConteiner>
                 {/* --------------------SERÁ EXCLUIDO-------------- */}
                 {/* <Navegation /> */}
                 {/* --------------------SERÁ EXCLUIDO-------------- */}
             </ProductsConteiner>
-        </>
+        </ProductsInformationPageDetails>
 
     )
 }

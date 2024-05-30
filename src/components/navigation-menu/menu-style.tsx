@@ -17,14 +17,12 @@ export const MenuConteiner = styled.div`
     width: 1.2rem; 
   }
 
-  &::-webkit-scrollbar-track {
-    background: #272727;
-  }
+
   
   &::-webkit-scrollbar-thumb {
-    background-color:${colors.secondaryColor};
+    background-color:${colors.tertiaryColor};
     border-radius: 10px;
-    border: 3px solid ${colors.tertiaryColor};
+    border: 3px solid ${colors.secondaryColor};
   }
   `
 

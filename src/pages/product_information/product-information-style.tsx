@@ -1,16 +1,37 @@
 import styled from "styled-components";
 import { colors } from "../../components/variables/variables";
 
+export const ProductsInformationPageDetails = styled.div`
+    grid-template-rows: 13rem 1fr;
+    display:grid;
+
+    grid-template-areas:
+    "header"
+    "products-information";
+`
+
 const ProductsConteiner = styled.div`
+    grid-area:products-information;
     background-color:${colors.tertiaryColor};
-    min-height: calc( 100vh -  9rem);
     text-align:center;
     padding-inline:8rem;
+    overflow-y:scroll;
 
     & > :first-child{
         font-size:5rem
         }
+    
+    &::-webkit-scrollbar {
+        width: 1.2rem; 
+        }
+            
+    &::-webkit-scrollbar-thumb {
+        background-color:${colors.secondaryColor};
+        border-radius: 10px;
+        border: 3px solid ${colors.tertiaryColor};
+        }
     `
+
 const PorductsInformationConteiner = styled.div`
 justify-content: space-evenly;
 display:flex;

@@ -1,14 +1,15 @@
 import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
-import { Header } from "../../components/header/header";
+import { FormContainer, LogContainer, LogoContainer, RegistrationPageContainer, Slogan } from "./registration_page_style";
+import WoodChair from "../../img/wood-chair.png";
 
 export function RegistrationPage() {
     return (
-        <>
-            <Header />
-            <h1>página de registro</h1>
-            {/* --------------------SERÁ EXCLUIDO-------------- */}
-            <Navegation />
-            {/* --------------------SERÁ EXCLUIDO-------------- */}
-        </>
+        <RegistrationPageContainer>
+            <Slogan />
+            <LogContainer>
+                <LogoContainer />
+                <FormContainer />
+            </LogContainer>
+        </RegistrationPageContainer>
     )
 }

@@ -16,6 +16,17 @@ export const MaterialsContainer = styled.div`
     letter-spacing:.256rem;
     overflow-y: scroll;
 
+    &::-webkit-scrollbar {
+        width: 1.2rem; 
+      }
+          
+      &::-webkit-scrollbar-thumb {
+        background-color:${colors.secondaryColor};
+        border-radius: 10px;
+        border: 3px solid ${colors.tertiaryColor};
+      }
+    
+
     & > :first-child{
         font-size:3rem;
         margin-block:2rem;
