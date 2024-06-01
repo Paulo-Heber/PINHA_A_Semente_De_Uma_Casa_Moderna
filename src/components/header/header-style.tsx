@@ -16,37 +16,6 @@ const Head = styled.header`
         }
     }
 `
-const Logo = styled.div`
-    box-shadow:0px 0px 0px 3px ${colors.secondaryColor};
-    background-color:${colors.secondaryColor};
-    border: 3px solid ${colors.primaryColor};
-    align-items: center;
-    border-radius:1.5rem;
-    display:flex;
-    width: 31rem;
-    height:9.4rem;
-    padding:20px;
-    color:${colors.tertiaryColor};
-    text-align:start;
-    font-size:4rem;
-`
-const Badge = styled.img`
-    max-block-size: 4.58rem;
-    margin-right:15px;
-`
-
-const LogoText = styled.div`
-    & > :first-child{
-        text-transform:uppercase;
-        margin-bottom:.4rem;
-        font-size:2rem;
-    }
-
-    & > :last-child{
-        font-size:1.2rem;
-        letter-spacing:.18rem;
-    }
-`
 
 const Searce = styled.div`
     align-items: center;
@@ -93,9 +62,6 @@ width:150px;
 
 export {
     Head,
-    Logo,
-    Badge,
-    LogoText,
     Searce,
     UserSpace
 }
