@@ -1,7 +1,5 @@
 import { ContactInformation, FormContainer, LogContainer, RegistrationPageContainer, Slogan } from "./registration_page_style";
 
-import WoodChair from "../../img/wood-chair.png";
-
 import { Logo } from "../../components/Logo/logo";
 import { Button } from "../../components/button/buttton";
 
@@ -15,33 +13,35 @@ export function RegistrationPage() {
         <RegistrationPageContainer>
             <Slogan>
                 <h1>
-                    O ambiente reflete o estado da nossa mente.
-                    Crie um espaço que inspira paz, conforto e harmonioa
+                    "O ambiente reflete o estado da nossa mente.
+                    Crie um espaço que inspira paz, conforto e harmonia."
                 </h1>
             </Slogan>
             <LogContainer>
-                 <Logo /> 
+                <Logo />
                 <FormContainer>
-                    <label htmlFor="Name">Nome</label>
-                    <input type="text" />
-                    <label htmlFor="fone">Telefone</label>
-                    <input type="text" />
-                    <label htmlFor="email">Email</label>
-                    <input type="email" />
-                    <label htmlFor="cpf">CPF</label>
-                    <input type="text" />
-                    <label htmlFor="password">Senha</label>
-                    <input type="password" />
-                    <label htmlFor="confirm-password">Confirmar Senha</label>
-                    <input type="password" />
+                    <div>
+                        <label htmlFor="Name">Nome*</label>
+                        <input type="text" />
+                        <label htmlFor="fone">Telefone*</label>
+                        <input type="text" />
+                        <label htmlFor="email">Email*</label>
+                        <input type="email" />
+                        <label htmlFor="cpf">CPF*</label>
+                        <input type="text" />
+                        <label htmlFor="password">Senha*</label>
+                        <input type="password" />
+                        <label htmlFor="confirm-password">Confirmar Senha*</label>
+                        <input type="password" />
+                    </div>
                     <Button label='FINALIZAR CADASTRO' />
-                    <Link to="log_page">
+                    <Link to="/log_page">
                         <p>Já possui cadastro?</p>
                     </Link>
                 </FormContainer>
                 <ContactInformation>
                     <p>pinhamoderna@gmail.com</p>
-                    <p>(88) 99860-2285</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5588998602285&text&type=phone_number&app_absent=0" target="_blank">(88) 99860-2285</a>
                     <div>
                         <FontAwesomeIcon icon={faInstagram} />
                         <FontAwesomeIcon icon={faFacebookSquare} />
