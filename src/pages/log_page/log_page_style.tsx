@@ -33,24 +33,23 @@ export const FormContainer = styled.form`
     align-items:center;
     height:100%;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex:1;
 
     & > :first-child{
         display:flex;
         flex-direction:column;
         width:70%;
-        height:75%;
-        justify-content:space-evenly;
-
+        justify-content:center;
 
         & > input {
             width:100%;
-            height:14%;
+            height:4.4rem;
             border-radius:.4rem;
             border:1px solid;
             font-size:1.5rem;
-            padding:.5rem;
+            padding:1rem;
+            margin-bottom:1.5rem;
             
         }
 
@@ -69,6 +68,7 @@ export const FormContainer = styled.form`
         border-radius:.6rem;
         border:none;
         font-size:1.4rem;
+        margin-bottom:1.5rem;
     }
 
     & > button:hover {
@@ -84,37 +84,5 @@ export const FormContainer = styled.form`
         color:${colors.primaryColor};
         font-size:2.5rem;
         text-decoration:underline;
-    }
-`
-
-export const ContactInformation = styled.div`
-    align-items:center;
-    flex-direction:column;
-    font-size:2rem;
-    display:flex;
-    color:${colors.primaryColor};
-
-    & > :first-child{
-        font-weight:bold;
-    }
-    
-    & > :nth-child(2){
-        margin-block:.3rem;
-        color:${colors.primaryColor};
-    }
-
-    & > :nth-child(2):hover{
-        text-decoration:underline;
-    }
-
-    & > :last-child{
-        font-size:2.5rem;
-        display:flex;
-        gap:1rem;
-        transition: .3s;
-    }
-
-    & > :last-child :hover{
-        cursor:pointer;
     }
 `
