@@ -3,7 +3,7 @@ import { Menu } from "../../components/navigation-menu/menu.tsx";
 
 import { FeaturedSection, HomePageConteiner, ProductCardSection, ProductCarousel, ProductsSection } from "./home-page-style.tsx";
 import { FeaturedProducts, ProductCard } from "../../components/products-cards/product-card.tsx";
-import { InputRadio } from "../../components/input-radios/input-radio.tsx";
+import { CarrocelInputs } from "../../components/input-radios/input-radio.tsx";
 export function HomePage() {
     return (
         <HomePageConteiner>
@@ -17,10 +17,7 @@ export function HomePage() {
                         <FeaturedProducts />
                     </ProductCarousel>
                     <div>
-                        <InputRadio name="highlightsCarousel" type="radio" checked />
-                        <InputRadio name="highlightsCarousel" type="radio" />
-                        <InputRadio name="highlightsCarousel" type="radio" />
-                        <InputRadio name="highlightsCarousel" type="radio" />
+                        <CarrocelInputs />
                     </div>
                 </FeaturedSection>
                 <ProductCardSection>

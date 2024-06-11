@@ -38,24 +38,26 @@ overflow-y:auto;
   
   const FeaturedSection = styled.div`
   width:100%;
-  background-color:#919191;
   padding:3.2rem;
   display:flex;
   flex-direction: column;
   align-items:center;
+
+  & > :nth-child(2){
+  display:flex;
+  gap:1rem;
+  }
   `
   
 const ProductCarousel = styled.div`
-display:flex;
-gap:7rem;
-margin-bottom:3rem;
+  display:flex;
+  gap:1rem;
+  margin-bottom:3rem;
 `
 
   const FeaturedImg = styled.img`
   width:30rem;
-  height:35.8rem;
-  background-color:red;
-  border-radius:.8rem;
+  height:100%;
   `
 
   const ProductCardSection = styled.div`
