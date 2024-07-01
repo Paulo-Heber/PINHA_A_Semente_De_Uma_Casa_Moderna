@@ -1,25 +1,17 @@
 import { Header } from "../../components/header/header.tsx";
 import { Menu } from "../../components/navigation-menu/menu.tsx";
 
-import { FeaturedSection, HomePageConteiner, ProductCardSection, ProductCarousel, ProductsSection } from "./home-page-style.tsx";
-import { FeaturedProducts, ProductCard } from "../../components/products-cards/product-card.tsx";
-import { CarrocelInputs } from "../../components/input-radios/input-radio.tsx";
+import { HomePageConteiner, ProductCardSection, ProductsSection } from "./home-page-style.tsx";
+import { ProductCard } from "../../components/products-cards/product-card.tsx";
+
+import { HighlightsCarousel } from "../../components/carrocel/carrocel.tsx";
 export function HomePage() {
     return (
         <HomePageConteiner>
             <Header />
             <Menu />
             <ProductsSection>
-                <FeaturedSection>
-                    <ProductCarousel>
-                        <FeaturedProducts />
-                        <FeaturedProducts />
-                        <FeaturedProducts />
-                    </ProductCarousel>
-                    <div>
-                        <CarrocelInputs />
-                    </div>
-                </FeaturedSection>
+                <HighlightsCarousel />
                 <ProductCardSection>
                     <ProductCard />
                     <ProductCard />

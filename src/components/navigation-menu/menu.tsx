@@ -27,7 +27,7 @@ const HomepageMenu: HomepageMenu = {
 }
 
 const RetornoDaAPI = {
-    nome: ["Material1", "Material2", "Material3", "Material4", "Material5", "Material6","Material7", "Material8"]
+    nome: ["Material1", "Material2", "Material3", "Material4", "Material5", "Material6", "Material7", "Material8"]
 }
 
 export function Menu() {
@@ -42,9 +42,9 @@ export function Menu() {
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
 
     const PageID = window.location.pathname;
-    console.log(PageID);
-
-    let UtensiliosDeMontagem = RetornoDaAPI.nome.map((material) => { return <li>{material}</li> });
+    let UtensiliosDeMontagem = RetornoDaAPI.nome.map((material, index) => {
+        return <li key={index}>{material}</li>
+    });
 
 
 
@@ -58,10 +58,13 @@ export function Menu() {
 
                         if (room === 'Ferragens') {
                             return (
-                                <Link to={'/production_materials'}>
+                                <Link key={room} to={'/production_materials'}>
                                     <Rooms key={index} onClick={() => selectRoom(room)}>
                                         <RoomsLabel checked={room === selectedFilter}>
-                                            <FilterSelector type="radio" name="filter" value={room} />{room}
+                                            <FilterSelector
+                                                type="radio"
+                                                name="filter"
+                                                value={room} />{room}
                                         </RoomsLabel>
                                     </Rooms>
                                 </Link>
@@ -70,7 +73,10 @@ export function Menu() {
                             return (
                                 <Rooms key={index} onClick={() => selectRoom(room)}>
                                     <RoomsLabel checked={room === selectedFilter}>
-                                        <FilterSelector type="radio" name="filter" value={room} />{room}
+                                        <FilterSelector
+                                            type="radio"
+                                            name="filter"
+                                            value={room} />{room}
                                     </RoomsLabel>
                                 </Rooms>
                             )

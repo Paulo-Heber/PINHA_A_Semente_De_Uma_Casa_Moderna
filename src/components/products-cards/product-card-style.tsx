@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../variables/variables";
+import { productCardDataType } from "./product-card";
 
 export const FornitureImg = styled.img`
     width:32rem;
@@ -9,14 +10,16 @@ export const FornitureImg = styled.img`
     box-shadow: 10px 10px 10px 0px #232323;
 `
 
-export const FeaturedProductsContainer = styled.div`
+export const FeaturedProductsContainer = styled.div<productCardDataType >`
     position: relative;
     height:43rem;
-`
+      background-color: ${(props) => props.backgroundColor || 'yellow'};`
+
 export const FeaturedProductInformation = styled.div`
     background-color:#242323;
     position: absolute;
     bottom:0;
+    width:100%;
     height:35%;
     color:#ffffff;
     padding:1.5rem;
@@ -27,10 +30,10 @@ export const FeaturedProductInformation = styled.div`
     flex-direction:column;
 
     & > :last-child{
-        background-color:${colors.secondaryColor};
-        border:none;
-        color:#ffffff;
-        padding:1rem;
-        width:50%;
+    background-color:${colors.secondaryColor};
+    border:none;
+    color:#ffffff;
+    padding:1rem;
+    width:50%;
     }
-`
+    `
