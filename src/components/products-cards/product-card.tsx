@@ -127,7 +127,7 @@ export const FeaturedProducts = () => {
                     <FeaturedProductInformation>
                         <h2>{data.name}</h2>
                         <p> {data.description}</p>
-                        <Button label="Adicionar ao carrinho" />
+                        <Button label="Adicionar ao carrinho"/>
                     </FeaturedProductInformation>
                 </FeaturedProductsContainer>
             </Link>
