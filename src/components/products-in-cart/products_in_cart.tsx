@@ -1,14 +1,15 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import bedImg from '../../img/cama.jpg'
 import { ColorMaterialContainer, FornitureInfos, ProductsInCartContainer } from '../../pages/shopping_cart/shopping_cart_style'
-import { Button, QuantityButtonSelector } from '../button/buttton'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+import { Button, QuantityButtonSelector } from '../button/buttton'
+
 import { useCartContext } from '../../hooks/useCartContext'
 
+import bedImg from '../../img/cama.jpg'
+
 export const ProductsInCart = () => {
-
     const { removeFromCart, cartItems } = useCartContext()
-
     if (cartItems.length === 0) {
         return (
             <>

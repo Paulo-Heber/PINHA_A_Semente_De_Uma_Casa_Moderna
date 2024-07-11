@@ -16,7 +16,7 @@ export function Button(props: ButtonProps) {
                 <button>{props.label}</button>
             </Link>
         )
-    } else if (props.label.toLowerCase() || props.label.toUpperCase() === 'adicionar ao carrinho') {
+    } else if (props.label.toLowerCase() === 'adicionar ao carrinho') {
         return <button onClick={() => addToCart('pi')}>{props.label}</button>
     } else { return <button>{props.label}</button> }
 }

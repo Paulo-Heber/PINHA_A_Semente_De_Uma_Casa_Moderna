@@ -1,6 +1,7 @@
 import { Header } from "../../components/header/header";
 import { AvailableColors, MainView, PorductsInformationConteiner, Price, ProductDetails, ProductDetailsContainer, ProductPreview, ProductsConteiner, ProductsInformationPageDetails, SecondaryViews } from "./product-information-style";
 import cama from '../../img/cama.jpg'
+import { Button } from "../../components/button/buttton";
 
 export function ProductInformation() {
     return (
@@ -32,10 +33,10 @@ export function ProductInformation() {
                                 <h3 className="precoMaior">R$ 00.000,00</h3>
                                 <p>Ou em até 10x de R$ 000,00</p>
                             </Price>
-                            <button>adicionar ao carrinho</button>
+                            <Button label={'adicionar ao carrinho'} />
                         </ProductDetails>
                     </ProductDetailsContainer>
-                    
+
                 </PorductsInformationConteiner>
                 {/* --------------------SERÁ EXCLUIDO-------------- */}
                 {/* <Navegation /> */}
