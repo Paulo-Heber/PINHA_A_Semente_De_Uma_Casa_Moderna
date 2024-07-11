@@ -1,6 +1,6 @@
-import { AssemblyProductsConteiner, AssemblyProductsInfos, QuantityButtonContainer, QuantitySelector } from "./assembly-products-card-style"
+import { AssemblyProductsConteiner, AssemblyProductsInfos } from "./assembly-products-card-style"
 import bedImg from '../../img/cama.jpg'
-import { Button, QuantityButtonSelector } from "../button/buttton"
+import { QuantityButtonSelector } from "../button/buttton"
 
 export const AssemblyProductsCard = () => {
     return (

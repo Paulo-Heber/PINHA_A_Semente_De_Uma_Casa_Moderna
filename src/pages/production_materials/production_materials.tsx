@@ -1,4 +1,3 @@
-import { Navegation } from "../../components/a-ser-excluido/navegacao-documento-excluido";
 import { AssemblyProductsCard } from "../../components/assembly-products-card/assembly-products-card";
 import { Header } from "../../components/header/header";
 import { Menu } from "../../components/navigation-menu/menu";

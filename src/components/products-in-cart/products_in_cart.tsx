@@ -28,7 +28,7 @@ export const ProductsInCart = () => {
     }
     return (
         <>
-            {cartItems.map((item: any, index: number) => {
+            {cartItems.map((/*item: any,*/ index: number) => {
                 return (
                     <>
                         < ProductsInCartContainer >
