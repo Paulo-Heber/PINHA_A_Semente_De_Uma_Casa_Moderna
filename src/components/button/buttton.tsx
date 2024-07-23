@@ -7,9 +7,11 @@ interface ButtonProps {
     to?: string;
     buttonType?: string;
     label: any;
+    itemId?: number;
 }
 export function Button(props: ButtonProps) {
     const { addToCart } = useCartContext();
+
     if (props.to) {
         return (
             <Link to={props.to}>
@@ -17,8 +19,11 @@ export function Button(props: ButtonProps) {
             </Link>
         )
     } else if (props.label.toLowerCase() === 'adicionar ao carrinho') {
-        return <button onClick={() => addToCart('pi')}>{props.label}</button>
-    } else { return <button>{props.label}</button> }
+
+        return <button onClick={() => { console.log(`Esse é o id que foi passado pelo botão: ${props.itemId}`); addToCart(props.itemId) }}>{props.label}</button>
+    } else {
+        return <button>{props.label}</button>
+    }
 }
 export function QuantityButtonSelector(props: ButtonProps) {
     const [quantityItems, setQuantityItems] = useState<number>(1);

@@ -15,11 +15,10 @@ interface CartContextProps {
 export const CartContextProvider: React.FC<CartContextProps> = ({ children }) => {
     const [cartItems, setCartItems] = useState<any[]>([]);
 
-    const addToCart = (item: any) => {
-        setCartItems([...cartItems, item]);
-        console.log(`esse é o item no carrinho ${item}`);
-
+    const addToCart = (itemId: number) => {
+        setCartItems([...cartItems, itemId]);
     }
+    console.log(`esse é o id que está no carrinho:${cartItems}`);
 
     const removeFromCart = (index: number) => {
         const newCartItems = [...cartItems];
