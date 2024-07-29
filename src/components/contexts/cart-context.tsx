@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 interface CartContextType {
-    cartItems: any[];
+    cartItems: number[];
     addToCart: (item: any) => void;
     removeFromCart: (index: number) => void;
 }

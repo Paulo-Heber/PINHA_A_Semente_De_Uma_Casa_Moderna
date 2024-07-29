@@ -19,31 +19,10 @@ export const ProductsInCart = () => {
                 <Button to='/' label={'Voltar para a Home'} />
             </>
         )
-        // Mostrar uma mensagem caso o carrinho esteja vazio.  
-        // Implementar um botão para voltar para a tela inicial do app.  
-        // Usar o hook useCartContext para acessar os items do carrinho.  
-        // Remover o item do carrinho com o index passado como argumento.
-        // Renderizar um botão de remover item caso o carrinho não esteja vazio. 
-
-        // Adicionar um botão de finalizar pedido caso o carrinho não esteja vazio.  
         // Mostrar a soma dos preços dos items do carrinho.  
         // Mostrar a quantidade de items no carrinho.
     }
 
-    interface ItemOfCart {
-        img: string,
-        name: string,
-        id: number,
-        paymentMethod: string[],
-        colorMaterial: string,
-        price: number,
-        termPrice: number,
-        quantity: number
-    };
-
-    /*
-    Ao clicar no botão de adicionar ao carrinho, tenho que pegar o id do card que foi clicado e enviar esse id para fazer com que o return a baixo renderize o item no carrinho referent ao id passado
-    */
     return (
         <>
             {cartItems.map((itemId: number, cartItemsIndex: number) => {
@@ -60,7 +39,9 @@ export const ProductsInCart = () => {
                                             <p>{itemData.name}</p>
                                             <p>id:{itemData.id}</p>
                                             <select>
-                                                {itemData.paymentMethod.map((payMethod: string) => { return <option>{payMethod}</option> })}
+                                                {itemData.paymentMethod.map((payMethod: string) => {
+                                                    return <option>{payMethod}</option>
+                                                })}
                                             </select>
                                             <ColorMaterialContainer>
                                                 <p>Cor:</p>
