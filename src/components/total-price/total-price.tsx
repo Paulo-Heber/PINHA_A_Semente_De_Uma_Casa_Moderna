@@ -14,30 +14,19 @@ export const TotalPrice = () => {
     const { cartItems } = useCartContext()
     const [totalPrice, setTotalPrice] = useState<number>(0);
 
-    if (cartItems.length != 0) {
+  
+        useEffect(() => {
+            const newTotalPrice = cartItems.reduce((accumulator, itemId) => {
+                const itemData = productsData.find((item) => item.id === itemId)
+                return itemData ? accumulator + itemData.price : accumulator;
+            }, 0)
+            setTotalPrice(newTotalPrice)
+        }, [cartItems]);
+
         return (
             <>
-                {cartItems.map((itemId: number, cartItemsIndex: number) => {
-
-
-                    return (
-                        <>
-                            {productsData.map((itemData) => {
-                                if (itemData.id === itemId) {
-                                    useEffect(() => {
-                                        const newTotalPrice = cartItems.reduce((accumulator, itemId) => {
-                                            const itemData = productsData.find((item) => item.id === itemId)
-                                            return itemData ? accumulator + itemData.price : accumulator;
-                                        }, 0)
-                                        setTotalPrice(newTotalPrice)
-                                    }, [cartItems]);
-                                }
-                            })}
-                        </>
-                    )
-                })}
                 <p>Total: R$ {totalPrice.toFixed(2)}</p>
             </>
         )
-    }
+    
 }
