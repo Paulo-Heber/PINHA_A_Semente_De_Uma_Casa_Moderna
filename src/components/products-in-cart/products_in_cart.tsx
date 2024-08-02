@@ -19,47 +19,40 @@ export const ProductsInCart = () => {
                 <Button to='/' label={'Voltar para a Home'} />
             </>
         )
-        // Mostrar a soma dos preços dos items do carrinho.  
+
         // Mostrar a quantidade de items no carrinho.
     }
 
     return (
         <>
             {cartItems.map((itemId: number, cartItemsIndex: number) => {
-                console.log(`esse é o itemid: ${itemId}`);
+                const itemData = productsData.find(item => item.id === itemId);
 
-                return (
-                    <>
-                        {productsData.map((itemData) => {
-                            if (itemData.id === itemId) {
-                                return (
-                                    < ProductsInCartContainer >
-                                        <img src={bedImg} alt="img do produto no carrinho" />
-                                        <FornitureInfos>
-                                            <p>{itemData.name}</p>
-                                            <p>id:{itemData.id}</p>
-                                            <select>
-                                                {itemData.paymentMethod.map((payMethod: string) => {
-                                                    return <option>{payMethod}</option>
-                                                })}
-                                            </select>
-                                            <ColorMaterialContainer>
-                                                <p>Cor:</p>
-                                                <span></span>
-                                            </ColorMaterialContainer>
-                                            <p>R$ {itemData.price}</p>
-                                            <p>a prazo Ou 15x de R$ 1,00</p>
-                                            <QuantityButtonSelector label="FINALIZAR PEDIDO" />
-                                        </FornitureInfos>
-                                        <FontAwesomeIcon icon={faTrashAlt} onClick={() => removeFromCart(cartItemsIndex)} />
-                                    </ProductsInCartContainer >
-                                )
-                            }
+                if (itemData) {
+                    return (
+                        < ProductsInCartContainer key={itemData.id}>
+                            <img src={bedImg} alt="img do produto no carrinho" />
+                            <FornitureInfos>
+                                <p>{itemData.name}</p>
+                                <p>id:{itemData.id}</p>
+                                <select>
+                                    {itemData.paymentMethod.map((payMethod: string, index: number) => {
+                                        return <option key={index}>{payMethod}</option>
+                                    })}
+                                </select>
+                                <ColorMaterialContainer colorMaterial={itemData.colorMaterial}>
+                                    <p>Cor:</p>
+                                    <span ></span>
+                                </ColorMaterialContainer>
+                                <p>R$ {itemData.price}</p>
+                                <p>a prazo Ou 15x de R$ 1,00</p>
+                                <QuantityButtonSelector label="FINALIZAR PEDIDO" />
+                            </FornitureInfos>
+                            <FontAwesomeIcon icon={faTrashAlt} onClick={() => removeFromCart(cartItemsIndex)} />
+                        </ProductsInCartContainer >
+                    )
+                }
 
-                        })}
-
-                    </>
-                )
             })}
         </>
     )

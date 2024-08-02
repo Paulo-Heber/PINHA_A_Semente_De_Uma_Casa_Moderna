@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../components/variables/variables";
+import { productCardDataType } from "../../components/products-cards/product-card";
 
 export const ShoppingCartContainer = styled.div`
 height:100vh;
@@ -96,7 +97,7 @@ export const FornitureInfos = styled.div`
 }
 `
 
-export const ColorMaterialContainer = styled.div`
+export const ColorMaterialContainer = styled.div<productCardDataType >`
 display:flex;
 font-size:3rem;
 align-items:center;
@@ -105,7 +106,7 @@ align-items:center;
     margin-left:2rem;
     border: 2px solid ${colors.secondaryColor};
     width:11%;
-    background-color:#549854;
+    background-color:${({ colorMaterial}) => colorMaterial};
     border-radius:.5rem;
     height:95%;
 }

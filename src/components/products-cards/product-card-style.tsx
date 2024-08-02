@@ -13,7 +13,7 @@ export const FornitureImg = styled.img`
 export const FeaturedProductsContainer = styled.div<productCardDataType >`
     position: relative;
     height:43rem;
-      background-color: ${(props) => props.backgroundColor || 'yellow'};`
+      background-color: ${(props) => props.backgroundColor};`
 
 export const FeaturedProductInformation = styled.div`
     background-color:#242323;
