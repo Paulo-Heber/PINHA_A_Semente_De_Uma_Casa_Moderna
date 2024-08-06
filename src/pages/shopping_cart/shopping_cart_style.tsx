@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../components/variables/variables";
-import { productCardDataType } from "../../components/products-cards/product-card";
+import { mdfColors, productCardDataType } from "../../components/products-cards/product-card";
 
 export const ShoppingCartContainer = styled.div`
 height:100vh;
@@ -98,16 +98,27 @@ export const FornitureInfos = styled.div`
 `
 
 export const ColorMaterialContainer = styled.div<productCardDataType >`
-display:flex;
+align-items:center; 
 font-size:3rem;
-align-items:center;
+display:flex;
+`
 
-& > :last-child{
-    margin-left:2rem;
-    border: 2px solid ${colors.secondaryColor};
-    width:11%;
-    background-color:${({ colorMaterial}) => colorMaterial};
-    border-radius:.5rem;
-    height:95%;
-}
+export const MaterialBoxColor = styled.div<mdfColors>`
+  background-color: ${({ mdfColor }) => mdfColor};
+  border: 2px solid ${colors.secondaryColor};
+  color:${({ color }) => color};
+  border-radius:.5rem;
+  margin-left:2rem;
+  height:85%;
+  width:11%;
+  transition: scale .3s ease-in-out;
+
+  &:hover{
+    cursor:pointer;
+    scale:102%;
+  }
+  &:active{
+    scale:100%;
+    opacity:80%
+  }
 `

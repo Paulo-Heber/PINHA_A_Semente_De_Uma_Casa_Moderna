@@ -134,3 +134,97 @@ export const productsData = [
         quantity: 1,
     },
 ]
+
+export const materialsData = [
+    {
+        id: 1,
+        price: 230.00,
+        name: 'Branco texturezado',
+        colorMaterial: '#ffffff',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 2,
+        price: 230.00,
+        name: 'Copenhaguem',
+        colorMaterial: 'brown',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 3,
+        price: 230.00,
+        name: 'Branco texturezado',
+        colorMaterial: 'red',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 4,
+        price: 230.00,
+        name: 'Copenhaguem',
+        colorMaterial: 'yellow',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 5,
+        price: 230.00,
+        name: 'Branco texturezado',
+        colorMaterial: 'withe',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 6,
+        price: 230.00,
+        name: 'Copenhaguem',
+        colorMaterial: 'brown',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 7,
+        price: 230.00,
+        name: 'Branco texturezado',
+        colorMaterial: 'withe',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 8,
+        price: 230.00,
+        name: 'Copenhaguem',
+        colorMaterial: 'brown',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 9,
+        price: 230.00,
+        name: 'Branco texturezado',
+        colorMaterial: 'withe',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 10,
+        price: 230.00,
+        name: 'Copenhaguem',
+        colorMaterial: 'brown',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 11,
+        price: 230.00,
+        name: 'Branco texturezado',
+        colorMaterial: 'withe',
+        paymentMethod: ['a vista', 'a prazo']
+    },
+    {
+        id: 12,
+        price: 230.00,
+        name: 'Copenhaguem',
+        colorMaterial: 'brown',
+        paymentMethod: ['a vista', 'a prazo']
+    }
+]
+
+export const mdfColors = [
+    '#ffffff',
+    'brown',
+    'blue',
+    'gray'
+]

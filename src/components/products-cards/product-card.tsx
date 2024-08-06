@@ -19,6 +19,10 @@ export type productCardDataType = {
     backgroundColor?: string;
 }
 
+export type mdfColors = {
+    mdfColor: string;
+}
+
 export const ProductCard = () => {
     return (
         <Link to='/product_information'>
