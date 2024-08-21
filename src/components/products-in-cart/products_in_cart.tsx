@@ -7,26 +7,55 @@ import { Button, QuantityButtonSelector } from '../button/buttton'
 import { useCartContext } from '../../hooks/useCartContext'
 
 import bedImg from '../../img/cama.jpg'
-import { materialsData, mdfColors, productsData } from '../banco-de-dados/banco-de-dados'
+import { mdfColors, productsData } from '../banco-de-dados/banco-de-dados'
 import { useState } from 'react'
 
 
 export const ProductsInCart = () => {
 
     const { removeFromCart, cartItems } = useCartContext()
+    const [colorSelected, setColorSelected] = useState(new Array(productsData.length).fill('#ffffff'));
+    const [showColorOptions, setShowColorOptions] = useState(new Array(productsData.length).fill(false));
 
-    const [colorSelected, setColorSelected] = useState('#ffffff')
-    const [showColorOptions, setShowColorOptions] = useState(false)
+    /*  TENHO UMA COR E QUANDO CLICAR NELA QUERO QUE ABRA UMA SELEÇÃO DE CORES, QUANDO ESCOLHER UMA, ESSA FICARÁ NO LOCAL DA QUE ESTAVA 
+    1. Cada renderização deve retornar um sinal de true e false para um array fora da função;
+    2. Vai mandar a informação pra posição baseada na key do map do cartItems;
+    3. Apenas a posição marcada como true deve abrir o menú de escolha de cores;
+    4. Ter um useState como array para setar a cor individual do item;
+    5.
+    */
 
-    const renderColorsContainer = () => {
-        if (showColorOptions === false) { return <MaterialBoxColor mdfColor={colorSelected} onClick={() => setShowColorOptions(true)} /> }
-        else if (showColorOptions === true) {
+
+
+    const renderColorsContainer = (itemId: number) => {
+
+        const updateColorsOptions = (itemId: number, newOption: boolean) => {
+            const newShowColorOption = [...showColorOptions];
+            newShowColorOption[itemId] = newOption;
+            setShowColorOptions(newShowColorOption);
+        }
+        
+        const updateColorsSelected = (colorId: number, newColor: string) => {
+            const newColorSelected = [...colorSelected];
+            newColorSelected[colorId] = newColor;
+            setColorSelected(newColorSelected);
+        }
+
+        if (showColorOptions[itemId] === false) {
+            return (
+                <MaterialBoxColor
+                    mdfColor={colorSelected[itemId]}
+                    onClick={() => {
+                        updateColorsOptions(itemId, true);
+                    }} />)
+        }
+        else if (showColorOptions[itemId] === true) {
             return mdfColors.map((color: string, index: number) => {
-                return <MaterialBoxColor 
-                            key={index} 
-                            mdfColor={color} 
-                            onClick={() => { setColorSelected(color); setShowColorOptions(false) }}
-                        />
+                return <MaterialBoxColor
+                    key={index}
+                    mdfColor={color}
+                    onClick={() => { updateColorsSelected(itemId, color); updateColorsOptions(itemId, false); }}
+                />
             })
         }
     }
@@ -38,14 +67,12 @@ export const ProductsInCart = () => {
                 <Button to='/' label={'Voltar para a Home'} />
             </>
         )
-        // Mostrar a quantidade de items no carrinho.
     }
 
     return (
         <>
             {cartItems.map((itemId: number, cartItemsIndex: number) => {
                 const itemData = productsData.find(item => item.id === itemId);
-                const materialData = materialsData.find(item => item.id === itemId);
                 if (itemData) {
                     return (
                         < ProductsInCartContainer key={itemData.id}>
@@ -60,8 +87,7 @@ export const ProductsInCart = () => {
                                 </select>
                                 <ColorMaterialContainer>
                                     <p>Cor:</p>
-                                    {/**/}
-                                    {renderColorsContainer()}
+                                    {renderColorsContainer(itemId)}
                                 </ColorMaterialContainer>
                                 <p>R$ {itemData.price}</p>
                                 <p>a prazo Ou 15x de R$ 1,00</p>
@@ -76,3 +102,9 @@ export const ProductsInCart = () => {
         </>
     )
 }
+
+/* ---- COISAS A SE FAZER ---------
+1. Mostrar a quantidade de items no carrinho.
+2. Quando mudar a quantidade de items a serem comprados, atualizar o preço de acordo
+3. Concertar o bug de apagar os itens do carrinho.
+*/

@@ -18,7 +18,7 @@ export const CartContextProvider: React.FC<CartContextProps> = ({ children }) =>
     const addToCart = (itemId: number) => {
         setCartItems([...cartItems, itemId]);
     }
-    console.log(`esse é o id que está no carrinho:${cartItems}`);
+   
 
     const removeFromCart = (index: number) => {
         const newCartItems = [...cartItems];

@@ -20,7 +20,7 @@ export function Button(props: ButtonProps) {
         )
     } else if (props.label.toLowerCase() === 'adicionar ao carrinho') {
 
-        return <button onClick={() => { console.log(`Esse é o id que foi passado pelo botão: ${props.itemId}`); addToCart(props.itemId) }}>{props.label}</button>
+        return <button onClick={() => {  addToCart(props.itemId) }}>{props.label}</button>
     } else {
         return <button>{props.label}</button>
     }
