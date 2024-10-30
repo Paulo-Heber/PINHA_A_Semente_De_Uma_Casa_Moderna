@@ -7,7 +7,7 @@ interface ButtonProps {
     to?: string;
     buttonType?: string;
     label: any;
-    itemId?: number;
+    itemId?: number;   
 }
 export function Button(props: ButtonProps) {
     const { addToCart } = useCartContext();
@@ -49,6 +49,6 @@ const modifyQuantityItems = (
     operator: '+' | '-'
 ): void => {
     const newQuantity = operator === '+' ? quantityItems + 1 : quantityItems - 1;
-    newQuantity < 0 ? setQuantityItems(0) : setQuantityItems(newQuantity);
+    newQuantity < 1 ? setQuantityItems(1) : setQuantityItems(newQuantity);
 
 }

@@ -17,16 +17,6 @@ export const ProductsInCart = () => {
     const [colorSelected, setColorSelected] = useState(new Array(productsData.length).fill('#ffffff'));
     const [showColorOptions, setShowColorOptions] = useState(new Array(productsData.length).fill(false));
 
-    /*  TENHO UMA COR E QUANDO CLICAR NELA QUERO QUE ABRA UMA SELEÇÃO DE CORES, QUANDO ESCOLHER UMA, ESSA FICARÁ NO LOCAL DA QUE ESTAVA 
-    1. Cada renderização deve retornar um sinal de true e false para um array fora da função;
-    2. Vai mandar a informação pra posição baseada na key do map do cartItems;
-    3. Apenas a posição marcada como true deve abrir o menú de escolha de cores;
-    4. Ter um useState como array para setar a cor individual do item;
-    5.
-    */
-
-
-
     const renderColorsContainer = (itemId: number) => {
 
         const updateColorsOptions = (itemId: number, newOption: boolean) => {
@@ -107,4 +97,13 @@ export const ProductsInCart = () => {
 1. Mostrar a quantidade de items no carrinho.
 2. Quando mudar a quantidade de items a serem comprados, atualizar o preço de acordo
 3. Concertar o bug de apagar os itens do carrinho.
+4. Quando adicionar mais de um mesmo item no carrinho, atualizar apenas o botão de quantidade e não
+criar mais um card de produto
+
+Quando clicar no botão de adicionar ao carrinho, VERIFICAR se ja tem algum produto com o mesmo id,
+se sim, somar um ao valor do botão de quantidade
+
+    1. Verificar: Utilizando o find no array cartItems ( cartIds ) comparar se o props.itemId === cartIds enviado pelo botão tiver um id correspondente
+       no cartItens, somar 1 ao valor do botão de quantidade
 */
+
