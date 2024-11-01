@@ -103,7 +103,6 @@ criar mais um card de produto
 Quando clicar no botão de adicionar ao carrinho, VERIFICAR se ja tem algum produto com o mesmo id,
 se sim, somar um ao valor do botão de quantidade
 
-    1. Verificar: Utilizando o find no array cartItems ( cartIds ) comparar se o props.itemId === cartIds enviado pelo botão tiver um id correspondente
-       no cartItens, somar 1 ao valor do botão de quantidade
+    1. Verificar: Utilizando o find no array cartItems ( cartIds ) comparar se o props.itemId === cartIds enviado pelo botão tiver um id correspondente caso tenha, no cartItens, chamar a função IncrementItem
 */
 

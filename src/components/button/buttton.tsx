@@ -7,10 +7,14 @@ interface ButtonProps {
     to?: string;
     buttonType?: string;
     label: any;
-    itemId?: number;   
+    itemId?: number;
+
 }
+
+let IncrementItem = () => { };
+let DecrementItem = () => { };
 export function Button(props: ButtonProps) {
-    const { addToCart } = useCartContext();
+    const { addToCart, cartItems } = useCartContext();
 
     if (props.to) {
         return (
@@ -19,17 +23,20 @@ export function Button(props: ButtonProps) {
             </Link>
         )
     } else if (props.label.toLowerCase() === 'adicionar ao carrinho') {
-
-        return <button onClick={() => {  addToCart(props.itemId) }}>{props.label}</button>
+        return <button onClick={() => {
+            const idVerification = cartItems.find(cartIds => cartIds === props.itemId);
+            if (idVerification != undefined) { IncrementItem() }
+            else { addToCart(props.itemId) };
+        }}> {props.label}</button >
     } else {
         return <button>{props.label}</button>
     }
 }
 export function QuantityButtonSelector(props: ButtonProps) {
-    const [quantityItems, setQuantityItems] = useState<number>(1);
 
-    const IncrementItem = () => { modifyQuantityItems(quantityItems, setQuantityItems, '+'); };
-    const DecrementItem = () => { modifyQuantityItems(quantityItems, setQuantityItems, '-'); }
+    const [quantityItems, setQuantityItems] = useState<number>(1);
+    IncrementItem = () => { modifyQuantityItems(quantityItems, setQuantityItems, '+'); };
+    DecrementItem = () => { modifyQuantityItems(quantityItems, setQuantityItems, '-'); }
 
     return (
         <QuantityButtonContainer>
