@@ -11,10 +11,24 @@ interface ButtonProps {
 
 }
 
-let IncrementItem = () => { };
-let DecrementItem = () => { };
+function useChangeQuantity() {
+
+    const [quantityItems, setQuantityItems] = useState<number>(1);
+
+    const IncrementItem = () => { modifyQuantityItems('+') };
+    const DecrementItem = () => { modifyQuantityItems('-') };
+
+    const modifyQuantityItems = (operator: '+' | '-') => {
+        setQuantityItems(prevQuantity => operator === '+' ? prevQuantity + 1 : Math.max(1, prevQuantity - 1)); 
+    }
+
+    return { quantityItems, setQuantityItems, IncrementItem, DecrementItem };
+}
+
+
 export function Button(props: ButtonProps) {
     const { addToCart, cartItems } = useCartContext();
+    const { IncrementItem } = useChangeQuantity();
 
     if (props.to) {
         return (
@@ -23,20 +37,19 @@ export function Button(props: ButtonProps) {
             </Link>
         )
     } else if (props.label.toLowerCase() === 'adicionar ao carrinho') {
-        return <button onClick={() => {
-            const idVerification = cartItems.find(cartIds => cartIds === props.itemId);
-            if (idVerification != undefined) { IncrementItem() }
-            else { addToCart(props.itemId) };
-        }}> {props.label}</button >
+        return (
+            <button onClick={() => {
+                const idVerification = cartItems.find(cartIds => cartIds === props.itemId);
+                idVerification ? IncrementItem : addToCart(props.itemId)
+            }}> {props.label}
+            </button >
+        );
     } else {
         return <button>{props.label}</button>
     }
 }
 export function QuantityButtonSelector(props: ButtonProps) {
-
-    const [quantityItems, setQuantityItems] = useState<number>(1);
-    IncrementItem = () => { modifyQuantityItems(quantityItems, setQuantityItems, '+'); };
-    DecrementItem = () => { modifyQuantityItems(quantityItems, setQuantityItems, '-'); }
+    const { IncrementItem, DecrementItem, quantityItems } = useChangeQuantity();
 
     return (
         <QuantityButtonContainer>
@@ -50,12 +63,3 @@ export function QuantityButtonSelector(props: ButtonProps) {
     )
 }
 
-const modifyQuantityItems = (
-    quantityItems: number,
-    setQuantityItems: (value: number) => void,
-    operator: '+' | '-'
-): void => {
-    const newQuantity = operator === '+' ? quantityItems + 1 : quantityItems - 1;
-    newQuantity < 1 ? setQuantityItems(1) : setQuantityItems(newQuantity);
-
-}
