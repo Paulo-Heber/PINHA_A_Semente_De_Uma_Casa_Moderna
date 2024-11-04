@@ -11,6 +11,7 @@ import { mdfColors, productsData } from '../banco-de-dados/banco-de-dados'
 import { useState } from 'react'
 
 
+
 export const ProductsInCart = () => {
 
     const { removeFromCart, cartItems } = useCartContext()
@@ -24,7 +25,7 @@ export const ProductsInCart = () => {
             newShowColorOption[itemId] = newOption;
             setShowColorOptions(newShowColorOption);
         }
-        
+
         const updateColorsSelected = (colorId: number, newColor: string) => {
             const newColorSelected = [...colorSelected];
             newColorSelected[colorId] = newColor;
@@ -81,7 +82,9 @@ export const ProductsInCart = () => {
                                 </ColorMaterialContainer>
                                 <p>R$ {itemData.price}</p>
                                 <p>a prazo Ou 15x de R$ 1,00</p>
-                                <QuantityButtonSelector label="FINALIZAR PEDIDO" />
+                                
+                                    <QuantityButtonSelector label="FINALIZAR PEDIDO" />
+                          
                             </FornitureInfos>
                             <FontAwesomeIcon icon={faTrashAlt} onClick={() => removeFromCart(cartItemsIndex)} />
                         </ProductsInCartContainer >

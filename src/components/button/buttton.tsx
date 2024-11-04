@@ -2,34 +2,21 @@ import { Link } from "react-router-dom"
 import { QuantityButtonContainer, QuantitySelector } from "../assembly-products-card/assembly-products-card-style";
 import { useState } from "react";
 import { useCartContext } from "../../hooks/useCartContext";
+import { useQuantityItemButtonContext } from "../contexts/quantity-Items-button-context";
 
 interface ButtonProps {
     to?: string;
     buttonType?: string;
     label: any;
     itemId?: number;
-
 }
 
-function useChangeQuantity() {
 
-    const [quantityItems, setQuantityItems] = useState<number>(1);
-
-    const IncrementItem = () => { modifyQuantityItems('+') };
-    const DecrementItem = () => { modifyQuantityItems('-') };
-
-    const modifyQuantityItems = (operator: '+' | '-') => {
-        setQuantityItems(prevQuantity => operator === '+' ? prevQuantity + 1 : Math.max(1, prevQuantity - 1)); 
-    }
-
-    return { quantityItems, setQuantityItems, IncrementItem, DecrementItem };
-}
 
 
 export function Button(props: ButtonProps) {
+    const { IncrementItem } = useQuantityItemButtonContext();
     const { addToCart, cartItems } = useCartContext();
-    const { IncrementItem } = useChangeQuantity();
-
     if (props.to) {
         return (
             <Link to={props.to}>
@@ -49,7 +36,7 @@ export function Button(props: ButtonProps) {
     }
 }
 export function QuantityButtonSelector(props: ButtonProps) {
-    const { IncrementItem, DecrementItem, quantityItems } = useChangeQuantity();
+    const { IncrementItem, DecrementItem, quantityItems } = useQuantityItemButtonContext();
 
     return (
         <QuantityButtonContainer>
