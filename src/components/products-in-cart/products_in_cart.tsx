@@ -9,6 +9,7 @@ import { useCartContext } from '../../hooks/useCartContext'
 import bedImg from '../../img/cama.jpg'
 import { mdfColors, productsData } from '../banco-de-dados/banco-de-dados'
 import { useState } from 'react'
+import { CartItem } from '../contexts/cart-context'
 
 
 
@@ -62,9 +63,10 @@ export const ProductsInCart = () => {
 
     return (
         <>
-            {cartItems.map((itemId: number, cartItemsIndex: number) => {
-                const itemData = productsData.find(item => item.id === itemId);
+            {cartItems.map((cartData: CartItem, cartItemsIndex: number) => {
+                const itemData = productsData.find(item => item.id === cartData.item.id);
                 if (itemData) {
+                    //{console.log(`cartdataid no cart:${cartData.item.id}`)}
                     return (
                         < ProductsInCartContainer key={itemData.id}>
                             <img src={bedImg} alt="img do produto no carrinho" />
@@ -78,13 +80,14 @@ export const ProductsInCart = () => {
                                 </select>
                                 <ColorMaterialContainer>
                                     <p>Cor:</p>
-                                    {renderColorsContainer(itemId)}
+                                    {renderColorsContainer(cartData.item.id)}
                                 </ColorMaterialContainer>
                                 <p>R$ {itemData.price}</p>
                                 <p>a prazo Ou 15x de R$ 1,00</p>
-                                
-                                    <QuantityButtonSelector label="FINALIZAR PEDIDO" />
-                          
+                                <QuantityButtonSelector
+                                    label="FINALIZAR PEDIDO"
+                                    itemId={cartData.item.id}
+                                />
                             </FornitureInfos>
                             <FontAwesomeIcon icon={faTrashAlt} onClick={() => removeFromCart(cartItemsIndex)} />
                         </ProductsInCartContainer >
@@ -109,3 +112,13 @@ se sim, somar um ao valor do botão de quantidade
     1. Verificar: Utilizando o find no array cartItems ( cartIds ) comparar se o props.itemId === cartIds enviado pelo botão tiver um id correspondente caso tenha, no cartItens, chamar a função IncrementItem
 */
 
+/*
+Tenho que passar o index do elemento adicionado ao carrinho a partir do momento em que ele for adicionado
+adiciono o item pelo addTocart no button, quando adiciono o item que tem tanto o id quando a quantidade e a partir do momento o index
+
+ */
+
+
+{/*
+     Há um erro na renderização do item de ID 12 onde a cor não aparece opção de escolha
+    */ }

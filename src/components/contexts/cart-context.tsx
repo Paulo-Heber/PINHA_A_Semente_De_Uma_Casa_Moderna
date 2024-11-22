@@ -1,9 +1,17 @@
 import { createContext, useState } from "react";
 
+export interface CartItem {
+    item: {
+        id: number;
+        quantity: number;
+    }
+}
+
 interface CartContextType {
-    cartItems: number[];
-    addToCart: (item: any) => void;
+    cartItems: CartItem[];
+    addToCart: (item: CartItem) => void;
     removeFromCart: (index: number) => void;
+    updateItemQuantity: (item: CartItem) => void;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -13,12 +21,21 @@ interface CartContextProps {
 }
 
 export const CartContextProvider: React.FC<CartContextProps> = ({ children }) => {
-    const [cartItems, setCartItems] = useState<any[]>([]);
+    const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-    const addToCart = (itemId: number) => {
-        setCartItems([...cartItems, itemId]);
+    const addToCart = (item: CartItem) => {
+        setCartItems([...cartItems, item]);
     }
-   
+
+    const updateItemQuantity = (updateItem: CartItem) => {
+        setCartItems(cart => {
+            const index = cart.findIndex(cartItems => cartItems.item.id === updateItem.item.id);
+
+            const updateQuantity = [...cart];
+            updateQuantity[index] = { ...updateQuantity, item: { id: updateItem.item.id, quantity: updateItem.item.quantity } }
+            return updateQuantity;
+        });
+    }
 
     const removeFromCart = (index: number) => {
         const newCartItems = [...cartItems];
@@ -27,10 +44,11 @@ export const CartContextProvider: React.FC<CartContextProps> = ({ children }) =>
     }
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateItemQuantity }}>
             {children}
         </CartContext.Provider>
     )
 }
 
 
+/**/
