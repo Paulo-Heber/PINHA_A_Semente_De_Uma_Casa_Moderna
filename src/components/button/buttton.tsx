@@ -47,7 +47,7 @@ export function Button({ to, label, itemId }: ButtonProps) {
         );
     }
 
-    if (label.toLowerCase() === 'adicionar ao carrinho') return <button onClick={() => handleAddToCart}> {label}</button >
+    if (label.toLowerCase() === 'adicionar ao carrinho') return <button onClick={() => handleAddToCart()}> {label}</button >
 
     return <button>{label}</button>
 
