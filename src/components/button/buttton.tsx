@@ -15,7 +15,7 @@ const findCartItemIndex = (cartItems: CartItem[], itemId: number) => cartItems.f
 const isItemInCart = (cartItems: CartItem[], itemId: number) => findCartItemIndex(cartItems, itemId) !== -1;
 
 export function Button({ to, label, itemId }: ButtonProps) {
-    const { addToCart, updateItemQuantity, cartItems } = useCartContext();
+    const { addToCart, updateCartItem, cartItems } = useCartContext();
 
     const handleAddToCart = () => {
         if (itemId == null) return;
@@ -25,14 +25,16 @@ export function Button({ to, label, itemId }: ButtonProps) {
                 item: {
                     id: itemId,
                     quantity: 1,
+                    color: '#ffffff'
                 }
             });
         } else {
             const itemIndex = findCartItemIndex(cartItems, itemId);
-            updateItemQuantity({
+            updateCartItem({
                 item: {
                     id: itemId,
-                    quantity: cartItems[itemIndex].item.quantity + 1
+                    quantity: cartItems[itemIndex].item.quantity + 1,
+                    color: cartItems[itemIndex].item.color
                 }
             })
         }
@@ -53,7 +55,7 @@ export function Button({ to, label, itemId }: ButtonProps) {
 
 }
 export function QuantityButtonSelector({ label, itemId }: ButtonProps) {
-    const { cartItems, updateItemQuantity } = useCartContext();
+    const { cartItems, updateCartItem } = useCartContext();
 
     if (itemId == undefined) {
         console.error('Erro: itemId não foi fornecido para o QuantityButtonSelector.');
@@ -81,10 +83,11 @@ export function QuantityButtonSelector({ label, itemId }: ButtonProps) {
         const currentQuantity = cartItems[itemIndex].item.quantity;
         const newQuantity = action === '+' ? currentQuantity + 1 : Math.max(1, currentQuantity - 1);
 
-        updateItemQuantity({
+        updateCartItem({
             item: {
                 id: itemId,
-                quantity: newQuantity
+                quantity: newQuantity,
+                color: cartItems[itemIndex].item.color
             }
         })
     }

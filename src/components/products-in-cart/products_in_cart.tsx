@@ -11,42 +11,50 @@ import { mdfColors, productsData } from '../banco-de-dados/banco-de-dados'
 import { useState } from 'react'
 import { CartItem } from '../contexts/cart-context'
 
-
+const findCartItemIndex = (cartItems: CartItem[], itemId: number) =>
+    cartItems.findIndex(cartData => cartData.item.id === itemId)
 
 export const ProductsInCart = () => {
-
-    const { removeFromCart, cartItems } = useCartContext()
-    const [colorSelected, setColorSelected] = useState(new Array(productsData.length).fill('#ffffff'));
+    const { removeFromCart, cartItems, updateCartItem } = useCartContext()
     const [showColorOptions, setShowColorOptions] = useState(new Array(productsData.length).fill(false));
 
     const renderColorsContainer = (itemId: number) => {
+        const index = findCartItemIndex(cartItems, itemId);
 
-        const updateColorsOptions = (itemId: number, newOption: boolean) => {
+        const updateColorsOptions = (newOption: boolean) => {
             const newShowColorOption = [...showColorOptions];
-            newShowColorOption[itemId] = newOption;
+            newShowColorOption[index] = newOption;
             setShowColorOptions(newShowColorOption);
+
         }
 
-        const updateColorsSelected = (colorId: number, newColor: string) => {
-            const newColorSelected = [...colorSelected];
-            newColorSelected[colorId] = newColor;
-            setColorSelected(newColorSelected);
+        const updateColorsSelected = (newColor: string) => {
+            updateCartItem({
+                item: {
+                    id: itemId,
+                    quantity: cartItems[index].item.quantity,
+                    color: newColor
+                }
+            });
         }
 
-        if (showColorOptions[itemId] === false) {
+        if (showColorOptions[index] === false) {
             return (
                 <MaterialBoxColor
-                    mdfColor={colorSelected[itemId]}
+                    mdfColor={cartItems[index].item.color}
                     onClick={() => {
-                        updateColorsOptions(itemId, true);
+                        updateColorsOptions(true);
                     }} />)
         }
-        else if (showColorOptions[itemId] === true) {
+        else if (showColorOptions[index] === true) {
             return mdfColors.map((color: string, index: number) => {
                 return <MaterialBoxColor
                     key={index}
                     mdfColor={color}
-                    onClick={() => { updateColorsSelected(itemId, color); updateColorsOptions(itemId, false); }}
+                    onClick={() => {
+                        updateColorsSelected(color);
+                        updateColorsOptions(false);
+                    }}
                 />
             })
         }
@@ -66,7 +74,6 @@ export const ProductsInCart = () => {
             {cartItems.map((cartData: CartItem, cartItemsIndex: number) => {
                 const itemData = productsData.find(item => item.id === cartData.item.id);
                 if (itemData) {
-                    //{console.log(`cartdataid no cart:${cartData.item.id}`)}
                     return (
                         < ProductsInCartContainer key={itemData.id}>
                             <img src={bedImg} alt="img do produto no carrinho" />
@@ -102,23 +109,6 @@ export const ProductsInCart = () => {
 /* ---- COISAS A SE FAZER ---------
 1. Mostrar a quantidade de items no carrinho.
 2. Quando mudar a quantidade de items a serem comprados, atualizar o preço de acordo
-3. Concertar o bug de apagar os itens do carrinho.
-4. Quando adicionar mais de um mesmo item no carrinho, atualizar apenas o botão de quantidade e não
-criar mais um card de produto
-
-Quando clicar no botão de adicionar ao carrinho, VERIFICAR se ja tem algum produto com o mesmo id,
-se sim, somar um ao valor do botão de quantidade
-
-    1. Verificar: Utilizando o find no array cartItems ( cartIds ) comparar se o props.itemId === cartIds enviado pelo botão tiver um id correspondente caso tenha, no cartItens, chamar a função IncrementItem
-*/
-
-/*
-Tenho que passar o index do elemento adicionado ao carrinho a partir do momento em que ele for adicionado
-adiciono o item pelo addTocart no button, quando adiciono o item que tem tanto o id quando a quantidade e a partir do momento o index
-
  */
 
 
-{/*
-     Há um erro na renderização do item de ID 12 onde a cor não aparece opção de escolha
-    */ }
