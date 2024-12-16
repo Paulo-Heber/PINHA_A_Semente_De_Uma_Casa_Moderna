@@ -8,8 +8,9 @@ export const TotalPrice = () => {
 
     useEffect(() => {
         const newTotalPrice = cartItems.reduce((accumulator, itemId) => {
-            const itemData = productsData.find((item) => item.id === itemId)
-            return itemData ? accumulator + itemData.price : accumulator;
+            const itemData = productsData.find((item) => item.id === itemId.item.id);
+
+            return itemData ? accumulator + itemData.price * itemId.item.quantity : accumulator;
         }, 0)
         setTotalPrice(newTotalPrice)
     }, [cartItems]);
