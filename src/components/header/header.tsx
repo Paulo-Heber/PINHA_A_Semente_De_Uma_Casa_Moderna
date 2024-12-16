@@ -6,16 +6,23 @@ import { Button } from '../button/buttton';
 import { faSearch, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { Head, Searce, UserSpace } from './header-style';
+import { CartIcon, Head, Searce, UserSpace } from './header-style';
 import { Logo } from '../Logo/logo';
+import { useCartContext } from '../../hooks/useCartContext';
 
 export const Header: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');
+  const { cartItems } = useCartContext();
 
   const handlePesquisaChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPesquisa(event.target.value);
-    // lógica de pesquisa
   };
+
+  const sumCartItems = () => {
+    const totalItemsQuantity = cartItems.reduce((acumulador, valorAtual) =>
+      acumulador + valorAtual.item.quantity, 0);
+    return totalItemsQuantity;
+  }
 
   return (
     <Head>
@@ -29,7 +36,14 @@ export const Header: React.FC = () => {
       </Searce>
 
       <UserSpace>
-        <Button to="/shopping_cart" label={<FontAwesomeIcon icon={faShoppingCart} />} />
+        <Button
+          to="/shopping_cart"
+          label={
+            <CartIcon>
+              <div>{sumCartItems()}</div>
+              <FontAwesomeIcon icon={faShoppingCart} />
+            </CartIcon>
+          } />
         <Button to="/registration_page" label={<FontAwesomeIcon icon={faUserCircle} />} />
       </UserSpace>
 

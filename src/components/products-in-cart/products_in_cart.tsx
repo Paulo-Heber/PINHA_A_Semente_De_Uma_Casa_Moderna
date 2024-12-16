@@ -25,7 +25,6 @@ export const ProductsInCart = () => {
             const newShowColorOption = [...showColorOptions];
             newShowColorOption[index] = newOption;
             setShowColorOptions(newShowColorOption);
-
         }
 
         const updateColorsSelected = (newColor: string) => {

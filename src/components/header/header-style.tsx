@@ -47,21 +47,42 @@ align-items: center;
 justify-content: space-evenly;
 width:150px;
 &>*{
-  &>*{
-    font-size: 4rem ;
-    color:${colors.tertiaryColor};
-    border:none;
-    background:transparent;
-    transition: font-size 0.3s ease;
-  &:hover{
-    font-size:50px;
+    &>*{
+        font-size: 4rem ;
+        color:${colors.tertiaryColor};
+        border:none;
+        background:transparent;
+        transition: font-size 1s ease;
+    &:hover{
     cursor:pointer;
-  }
+    scale:1.1;
+    }
+    }
+    `
+const CartIcon = styled.div`
+position: relative;
+
+&>:first-child{
+    color:${colors.tertiaryColor};
+    border-radius:50%;
+    background-color: red;
+    position:absolute;
+    width:1.5rem;
+    height:1.5rem;
+    right:-3px;
+    top:-8px;
+    font-size:1.5rem;
 }
+    &>:last-child{
+        width:50px;
+        height:34px;
+    }
+ 
 `
 
 export {
     Head,
     Searce,
-    UserSpace
+    UserSpace,
+    CartIcon
 }

@@ -6,7 +6,7 @@ import { CartItem } from "../contexts/cart-context";
 interface ButtonProps {
     to?: string;
     buttonType?: string;
-    label: any;
+    label?: any;
     itemId?: number;
 }
 
