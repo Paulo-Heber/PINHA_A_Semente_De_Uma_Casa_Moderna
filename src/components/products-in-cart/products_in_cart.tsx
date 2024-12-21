@@ -105,9 +105,3 @@ export const ProductsInCart = () => {
     )
 }
 
-/* ---- COISAS A SE FAZER ---------
-1. Mostrar a quantidade de items no carrinho.
-2. Quando mudar a quantidade de items a serem comprados, atualizar o preço de acordo
- */
-
-

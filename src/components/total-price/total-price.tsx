@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useCartContext } from "../../hooks/useCartContext";
 import { productsData } from "../banco-de-dados/banco-de-dados";
+import { TotalPrice } from "../../pages/shopping_cart/shopping_cart_style";
 
-export const TotalPrice = () => {
+export const TotalPriceContainer = () => {
     const { cartItems } = useCartContext()
     const [totalPrice, setTotalPrice] = useState<number>(0);
 
@@ -17,7 +18,11 @@ export const TotalPrice = () => {
 
     return (
         <>
-            <p>Total: R$ {totalPrice.toFixed(2)}</p>
+
+            <TotalPrice>
+                <p>Total:</p>
+                <p>R$ {totalPrice.toFixed(2)}</p>
+            </TotalPrice>
         </>
     )
 }

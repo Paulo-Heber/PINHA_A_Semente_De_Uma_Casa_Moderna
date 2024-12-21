@@ -122,3 +122,12 @@ export const MaterialBoxColor = styled.div<mdfColors>`
     opacity:80%
   }
 `
+
+export const TotalPrice = styled.div`
+  display:flex;
+  justify-content:space-between;
+  color:${({ color }) => color};
+  transition: scale .3s ease-in-out;
+  border-top: 1px solid;
+  padding-block:2.5rem;
+`
