@@ -48,7 +48,7 @@ export const FeaturedProducts = () => {
         productData.slice(0, 3).map((data, index) => {
             return (
                 <Link to='/' key={index}>
-                    <FeaturedProductsContainer backgroundColor={data.colorMaterial}>
+                    <FeaturedProductsContainer >
                         <FeaturedImg src={''} />
                         <FeaturedProductInformation>
                             <h2>{data.name}</h2>

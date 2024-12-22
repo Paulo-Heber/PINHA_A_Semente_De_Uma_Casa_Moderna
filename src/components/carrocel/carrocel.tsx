@@ -20,3 +20,9 @@ export const HighlightsCarousel = () => {
         </CaroucelContext.Provider>
     )
 }
+
+/* ATUALIZANDO CARROCEL
+Tenho que fazer com que o input selecionado mostre 3 cards de items diferentes por vez
+a diferença é que quando selecionar o input manualmente, vá para aqueles mesmo 3 items específicos
+
+*/

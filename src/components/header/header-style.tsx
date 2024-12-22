@@ -61,13 +61,13 @@ width:150px;
 `
 
 
-const CartIcon = styled.div<{ sumItems: number }>`
+const CartIcon = styled.div<{ $sumitems: number }>`
 position: relative;
 
 &>:first-child{
     color:${colors.tertiaryColor};
     border-radius:50%;
-    background-color: ${(props) => (props.sumItems > 0 ? 'red' : 'transparent')};
+    background-color: ${(props) => (props.$sumitems > 0 ? 'red' : 'transparent')};
     position:absolute;
     width:1.5rem;
     height:1.5rem;

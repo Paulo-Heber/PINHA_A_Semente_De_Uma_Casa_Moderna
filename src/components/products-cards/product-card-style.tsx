@@ -10,10 +10,10 @@ export const FornitureImg = styled.img`
     box-shadow: 10px 10px 10px 0px #232323;
 `
 
-export const FeaturedProductsContainer = styled.div<productCardDataType >`
+export const FeaturedProductsContainer = styled.div`
     position: relative;
     height:43rem;
-      background-color: ${(props) => props.backgroundColor};`
+`
 
 export const FeaturedProductInformation = styled.div`
     background-color:#242323;

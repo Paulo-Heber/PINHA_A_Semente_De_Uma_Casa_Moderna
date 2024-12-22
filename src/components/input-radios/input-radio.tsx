@@ -1,20 +1,19 @@
 import styled from "styled-components";
 import { colors } from "../variables/variables";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useCaroucelContext } from "../../hooks/useCaroucelContext";
 
-// exportar o tamanho do array do carrocel para utilizar para ter a quantidade de vezes que o for dos pordutos serã lidos
-let carrocelArray = [];
+
 export const CarrocelInputs = () => {
   const [maker, setMaker] = useState(0);
   const { setCaroucelId } = useCaroucelContext();
 
-  carrocelArray = [
+  const carrocelArray = useMemo(() => [
     { id: 0, checked: maker === 0 },
     { id: 1, checked: maker === 1 },
     { id: 2, checked: maker === 2 },
     { id: 3, checked: maker === 3 },
-  ];
+  ], [maker]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,21 +21,21 @@ export const CarrocelInputs = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [maker]);
 
   useEffect(() => {
     setCaroucelId(maker);
-  }, [maker]);
+  }, [maker, setCaroucelId]);
 
   return (
     <>
-      {carrocelArray.map((input, index) => {
+      {carrocelArray.map((input) => {
         return < StyledInputRadio
-          key={index}
+          key={input.id}
           name="carrocelInput"
-          id={String(input.id)}
           checked={input.checked}
-          readOnly />
+          onClick={() => setMaker(input.id)}
+        />
       })}
     </>
   )

@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
         <Button
           to="/shopping_cart"
           label={
-            <CartIcon sumItems={sumCartItems()}>
+            <CartIcon $sumitems={sumCartItems()}>
               {sumCartItems() > 0 ? <div>{sumCartItems()}</div> : <div></div>}
               <FontAwesomeIcon icon={faShoppingCart} />
             </CartIcon>
