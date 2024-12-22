@@ -58,14 +58,16 @@ width:150px;
     scale:1.1;
     }
     }
-    `
-const CartIcon = styled.div`
+`
+
+
+const CartIcon = styled.div<{ sumItems: number }>`
 position: relative;
 
 &>:first-child{
     color:${colors.tertiaryColor};
     border-radius:50%;
-    background-color: red;
+    background-color: ${(props) => (props.sumItems > 0 ? 'red' : 'transparent')};
     position:absolute;
     width:1.5rem;
     height:1.5rem;
