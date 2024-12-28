@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { colors } from "../../components/variables/variables";
-import { mdfColors, productCardDataType } from "../../components/products-cards/product-card";
+
+
+import { colors } from "../components/variables/variables";
+import { mdfColors, productCardDataType } from "../components/products-cards/product-card";
 
 export const ShoppingCartContainer = styled.div`
 height:100vh;
