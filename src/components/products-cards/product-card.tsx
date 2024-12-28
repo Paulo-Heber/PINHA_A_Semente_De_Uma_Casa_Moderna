@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import bedImg from '../../img/cama.jpg'
-import { FeaturedProductInformation, FeaturedProductsContainer, FornitureImg } from './product-card-style';
-import { FeaturedImg } from '../../pages/home/home-page-style';
+import { FeaturedProductInformation, FeaturedProductsContainer, FornitureImg } from '../../styles/product-card-style';
+import { FeaturedImg } from '../../styles/home-page-style';
 import { Button } from '../button/buttton';
 import { useCaroucelContext } from '../../hooks/useCaroucelContext';
-import { productsData } from '../banco-de-dados/banco-de-dados';
+import { productsData } from '../../services/banco-de-dados';
 
 export type productCardDataType = {
     id?: number,
@@ -16,11 +16,10 @@ export type productCardDataType = {
     description?: string;
     colorMaterial?: string,
     paymentMethod?: string[],
-    backgroundColor?: string;
 }
 
 export type mdfColors = {
-    mdfColor: string;
+    $mdfColor: string;
 }
 
 export const ProductCard = () => {
@@ -35,9 +34,7 @@ export const FeaturedProducts = () => {
     const { caroucelId } = useCaroucelContext();
     const productDataRange = 3;
 
-
-
-    let productDataGrouping = [];
+    const productDataGrouping = [];
     for (let i = 0; i < Math.ceil(productsData.length / productDataRange); i++) {
         const startCut = i * productDataRange;
         const endCut = startCut + productDataRange;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import WoodChair from "../../img/wood-chair.jpg"
-import { colors } from "../../components/variables/variables";
+import WoodChair from "../img/wood-chair.jpg"
+import { colors } from "../components/variables/variables";
 
 export const LogPageContainer = styled.div`
 display:flex;

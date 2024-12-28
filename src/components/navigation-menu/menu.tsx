@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title, MaterialList, FilterSelector } from "./menu-style";
+import { Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title, MaterialList, FilterSelector } from "../../styles/menu-style";
 import { Link } from "react-router-dom";
 
 type menuStructure = {
@@ -42,7 +42,7 @@ export function Menu() {
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
 
     const PageID = window.location.pathname;
-    let UtensiliosDeMontagem = RetornoDaAPI.nome.map((material, index) => {
+    const UtensiliosDeMontagem = RetornoDaAPI.nome.map((material, index) => {
         return <li key={index}>{material}</li>
     });
 
@@ -93,7 +93,7 @@ export function Menu() {
 
                 })}
             </MenuConteiner>)
-    } else if ('/production_materials') {
+    } else {
         return (
             <MenuConteiner>
                 <Title>SUMÁRIO</Title>
@@ -105,3 +105,8 @@ export function Menu() {
     }
 }
 
+/*
+PARA O FILTRO
+Tenho que verificar se a room do item é igual a room do selectedFilter
+a room do item vem do productsData
+*/

@@ -1,17 +1,19 @@
-import { AssemblyProductsConteiner, AssemblyProductsInfos } from "./assembly-products-card-style"
-import bedImg from '../../img/cama.jpg'
+import { AssemblyProductsConteiner, AssemblyProductsInfos } from "../../styles/assembly-products-card-style"
 import { QuantityButtonSelector } from "../button/buttton"
-
+import { productsMaterialsData } from "../../services/banco-de-dados"
 export const AssemblyProductsCard = () => {
-    return (
-        <AssemblyProductsConteiner>
-            <img src={bedImg} alt="" />
-            <AssemblyProductsInfos>
-                <p>Nome do material</p>
-                <p>R$ 12,00 A vista</p>
-                <p>ou 3 x 4,20</p>
-                <QuantityButtonSelector label="Adicionar ao carrinho" />
-            </AssemblyProductsInfos>
-        </AssemblyProductsConteiner>
-    )
+    const renderProductsMaterial = () => {
+        return productsMaterialsData.map((material) => (
+            <AssemblyProductsConteiner key={material.id}>
+                <img src={material.img} alt="" />
+                <AssemblyProductsInfos>
+                    <p>{material.name}</p>
+                    <p>{material.price}</p>
+
+                    <QuantityButtonSelector label="Adicionar ao carrinho" itemId={material.id} />
+                </AssemblyProductsInfos>
+            </AssemblyProductsConteiner>
+        ))
+    }
+    return renderProductsMaterial()
 }

@@ -104,7 +104,7 @@ display:flex;
 `
 
 export const MaterialBoxColor = styled.div<mdfColors>`
-  background-color: ${({ mdfColor }) => mdfColor};
+  background-color: ${({ $mdfColor }) => $mdfColor};
   border: 2px solid ${colors.secondaryColor};
   color:${({ color }) => color};
   border-radius:.5rem;

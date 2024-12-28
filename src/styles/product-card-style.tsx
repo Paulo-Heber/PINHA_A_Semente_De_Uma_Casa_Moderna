@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../variables/variables";
-import { productCardDataType } from "./product-card";
+import { colors } from "../components/variables/variables";
 
 export const FornitureImg = styled.img`
     width:32rem;

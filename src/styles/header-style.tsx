@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../variables/variables"
+import { colors } from "../components/variables/variables"
 
 const Head = styled.header`
     grid-area: header;

@@ -1,11 +1,11 @@
-import { ContactInformation, FormContainer, LogContainer, RegistrationPageContainer, Slogan } from "./registration_page_style";
+import { ContactInformation, FormContainer, LogContainer, RegistrationPageContainer, Slogan } from "../../styles/registration_page_style";
 
-import { Logo } from "../../components/Logo/logo";
 import { Button } from "../../components/button/buttton";
 
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Logo } from "../../components/header/header";
 
 
 export function RegistrationPage() {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCartContext } from "../../hooks/useCartContext";
-import { productsData } from "../banco-de-dados/banco-de-dados";
-import { TotalPrice } from "../../pages/shopping_cart/shopping_cart_style";
+import { productsData } from "../../services/banco-de-dados";
+import { TotalPrice } from "../../styles/shopping_cart_style";
 
 export const TotalPriceContainer = () => {
     const { cartItems } = useCartContext()

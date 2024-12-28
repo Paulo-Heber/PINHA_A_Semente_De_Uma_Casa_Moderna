@@ -1,6 +1,6 @@
-import { FormContainer, LogContainer, LogPageContainer, Slogan } from "./log_page_style";
+import { FormContainer, LogContainer, LogPageContainer, Slogan } from "../../styles/log_page_style";
 
-import { Logo } from "../../components/Logo/logo";
+import { Logo } from "../../components/header/header";
 import { Button } from "../../components/button/buttton";
 
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ export function LogPage() {
                         <label htmlFor="cpf">CPF*</label>
                         <input type="text" placeholder="_ _ _ . _ _ _ . _ _ _ - _ _" />
                         <label htmlFor="password">Senha*</label>
-                        <input type="password" placeholder="***********"/>
+                        <input type="password" placeholder="***********" />
                     </div>
                     <Button label='ENTRAR' />
                     <Link to="/registration_page">

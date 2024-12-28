@@ -1,5 +1,5 @@
 import { Header } from "../../components/header/header";
-import { AvailableColors, MainView, PorductsInformationConteiner, Price, ProductDetails, ProductDetailsContainer, ProductPreview, ProductsConteiner, ProductsInformationPageDetails, SecondaryViews } from "./product-information-style";
+import { AvailableColors, MainView, PorductsInformationConteiner, Price, ProductDetails, ProductDetailsContainer, ProductPreview, ProductsConteiner, ProductsInformationPageDetails, SecondaryViews } from "../../styles/product-information-style";
 import cama from '../../img/cama.jpg'
 import { Button } from "../../components/button/buttton";
 

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../variables/variables"
+import { colors } from "../components/variables/variables"
 
 export const LogoContainer = styled.div`
     background-color:transparent;

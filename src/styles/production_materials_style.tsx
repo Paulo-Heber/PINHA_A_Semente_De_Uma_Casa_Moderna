@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../components/variables/variables";
+import { colors } from "../components/variables/variables";
 
 export const ProductionMaterialsPage = styled.div`
     grid-template-columns: 17.7% 1fr;

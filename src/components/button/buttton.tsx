@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
-import { QuantityButtonContainer, QuantitySelector } from "../assembly-products-card/assembly-products-card-style";
+import { QuantityButtonContainer, QuantitySelector } from "../../styles/assembly-products-card-style";
 import { useCartContext } from "../../hooks/useCartContext";
 import { CartItem } from "../contexts/cart-context";
-
+import { ReactNode } from 'react';
 interface ButtonProps {
     to?: string;
     buttonType?: string;
-    label?: any;
+    label?: ReactNode;
     itemId?: number;
 }
 
@@ -49,9 +49,10 @@ export function Button({ to, label, itemId }: ButtonProps) {
         );
     }
 
-    if (label.toLowerCase() === 'adicionar ao carrinho') return <button onClick={() => handleAddToCart()}> {label}</button >
+    if (typeof label === 'string' && label.toLowerCase() === 'adicionar ao carrinho')
+        return <button onClick={() => handleAddToCart()}> {label}</button >
 
-    return <button>{label}</button>
+    return <button>{label ?? 'No label provided'}</button>
 
 }
 export function QuantityButtonSelector({ label, itemId }: ButtonProps) {

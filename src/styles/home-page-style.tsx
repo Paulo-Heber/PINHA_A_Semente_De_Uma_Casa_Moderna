@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../components/variables/variables";
+import { colors } from "../components/variables/variables";
 
 export const HomePageConteiner = styled.div`
 grid-template-columns:25.5rem 1fr;
@@ -35,7 +35,7 @@ overflow-y:auto;
     border: 3px solid ${colors.tertiaryColor};
   }
   `
-  
+
 export const FeaturedImg = styled.img`
   width:30rem;
   height:100%;

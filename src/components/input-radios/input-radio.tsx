@@ -35,6 +35,7 @@ export const CarrocelInputs = () => {
           name="carrocelInput"
           checked={input.checked}
           onClick={() => setMaker(input.id)}
+          readOnly
         />
       })}
     </>

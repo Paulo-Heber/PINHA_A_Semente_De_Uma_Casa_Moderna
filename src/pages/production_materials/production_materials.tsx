@@ -2,7 +2,7 @@ import { AssemblyProductsCard } from "../../components/assembly-products-card/as
 import { Header } from "../../components/header/header";
 import { Menu } from "../../components/navigation-menu/menu";
 
-import { MaterialsContainer, ProductionMaterialsPage } from "./production_materials_style";
+import { MaterialsContainer, ProductionMaterialsPage } from "../../styles/production_materials_style";
 
 export function ProductionMaterials() {
     return (
@@ -17,7 +17,7 @@ export function ProductionMaterials() {
                 <AssemblyProductsCard />
                 <AssemblyProductsCard />
             </MaterialsContainer>
-            <Menu/>
+            <Menu />
         </ProductionMaterialsPage>
     )
 }

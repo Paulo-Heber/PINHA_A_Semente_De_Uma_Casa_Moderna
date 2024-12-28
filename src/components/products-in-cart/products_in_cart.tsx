@@ -1,4 +1,4 @@
-import { ColorMaterialContainer, FornitureInfos, MaterialBoxColor, ProductsInCartContainer } from '../../pages/shopping_cart/shopping_cart_style'
+import { ColorMaterialContainer, FornitureInfos, MaterialBoxColor, ProductsInCartContainer } from '../../styles/shopping_cart_style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -7,7 +7,7 @@ import { Button, QuantityButtonSelector } from '../button/buttton'
 import { useCartContext } from '../../hooks/useCartContext'
 
 import bedImg from '../../img/cama.jpg'
-import { mdfColors, productsData } from '../banco-de-dados/banco-de-dados'
+import { mdfColors, productsData } from '../../services/banco-de-dados'
 import { useState } from 'react'
 import { CartItem } from '../contexts/cart-context'
 
@@ -40,7 +40,7 @@ export const ProductsInCart = () => {
         if (showColorOptions[index] === false) {
             return (
                 <MaterialBoxColor
-                    mdfColor={cartItems[index].item.color}
+                    $mdfColor={cartItems[index].item.color}
                     onClick={() => {
                         updateColorsOptions(true);
                     }} />)
@@ -49,7 +49,7 @@ export const ProductsInCart = () => {
             return mdfColors.map((color: string, index: number) => {
                 return <MaterialBoxColor
                     key={index}
-                    mdfColor={color}
+                    $mdfColor={color}
                     onClick={() => {
                         updateColorsSelected(color);
                         updateColorsOptions(false);
