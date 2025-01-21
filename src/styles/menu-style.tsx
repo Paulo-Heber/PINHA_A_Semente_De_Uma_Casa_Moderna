@@ -17,7 +17,11 @@ export const MenuConteiner = styled.div`
     width: 1.2rem; 
   }
 
-
+  @media (max-width: 430px) {
+  // text-align:center;
+  // flex-direction:row;
+ 
+}
   
   &::-webkit-scrollbar-thumb {
     background-color:${colors.tertiaryColor};
@@ -37,12 +41,20 @@ display:flex;
 flex-direction:column;
 min-width:100%;
 text-aling-center;
+
+& > :last-child{
+  @media (max-width: 430px) {
+    display: flex;
+    justify-content:center;
+  flex-direction:row;
+}}
 `
 export const Rooms = styled.li`
 display:flex;
 margin-bottom:1rem;
 color:#ffffff;
 font-size:3.2rem;
+
 `
 export const RoomsLabel = styled.label<{ checked: boolean }>`
   flex: 1;
@@ -58,6 +70,8 @@ export const RoomsLabel = styled.label<{ checked: boolean }>`
     cursor:pointer;
     font-size:1.7rem;
   }
+
+
 `;
 
 export const FilterSelector = styled.input`

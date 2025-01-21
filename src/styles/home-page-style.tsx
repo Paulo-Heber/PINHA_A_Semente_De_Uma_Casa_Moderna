@@ -9,7 +9,21 @@ display:grid;
 grid-template-areas:
 "header header "
 "navegation products";
+
+@media (max-width: 430px) {
+  grid-template-columns:1fr;
+  grid-template-rows: 1fr;
+  display:grid;
+
+  grid-template-areas:
+  "header "
+  "navegation "
+  "products ";
+}
+
 `
+
+
 
 export const ProductsSection = styled.div`
 background-color: ${colors.tertiaryColor};

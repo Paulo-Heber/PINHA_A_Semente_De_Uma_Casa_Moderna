@@ -8,6 +8,7 @@ const Head = styled.header`
     justify-content: space-between;
     width: 100%;
     padding:1.8rem 2.9rem;
+    flex:1; 
 
     & > a{
         &>*{
@@ -21,23 +22,27 @@ const Searce = styled.div`
     align-items: center;
     position: relative;
     display:flex;
-
+    margin-inline:3rem 0;
+    flex:1;
+    margin-inline:1.5rem;
+    
     &> input {
         border: solid .2rem ${colors.secondaryColor};
         background-color:${colors.tertiaryColor};
         border-radius:4rem;
         padding-left:3rem;
-        font-size:3rem;
-        width:42.3rem;
+        font-size:2rem;
         height:4.8rem;
         display:flex;
+        flex:1;
+       
     }
 
-    &> button {
-        background:transparent;
+    &>:last-child {
         position:absolute;
-        border:none;
-        right:10px;
+        right:1.5rem;
+        font-size:2.5rem;
+        color:gray;
     }
 
 `
@@ -46,18 +51,23 @@ display:flex;
 align-items: center;
 justify-content: space-evenly;
 width:150px;
+
+
 &>*{
+font-size:4rem;
+
     &>*{
         font-size: 4rem ;
         color:${colors.tertiaryColor};
         border:none;
         background:transparent;
         transition: font-size 1s ease;
-    &:hover{
-    cursor:pointer;
-    scale:1.1;
-    }
-    }
+        &:hover{
+            cursor:pointer;
+            scale:1.1;
+            }
+            }
+
 `
 
 

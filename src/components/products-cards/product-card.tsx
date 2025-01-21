@@ -5,6 +5,7 @@ import { FeaturedImg } from '../../styles/home-page-style';
 import { Button } from '../button/buttton';
 import { useCaroucelContext } from '../../hooks/useCaroucelContext';
 import { productsData } from '../../services/banco-de-dados';
+import { useEffect, useState } from 'react';
 
 export type productCardDataType = {
     id?: number,
@@ -32,7 +33,27 @@ export const ProductCard = () => {
 
 export const FeaturedProducts = () => {
     const { caroucelId } = useCaroucelContext();
-    const productDataRange = 3;
+
+    const [productDataRange, setProductDataRange] = useState(3);
+
+    useEffect(() => {
+        const updateRange = () => {
+            if (window.innerWidth < 1200 && window.innerWidth > 1000) {
+                setProductDataRange(2);
+            } else if (window.innerWidth <= 1000) {
+                setProductDataRange(1);
+            } else setProductDataRange(3);
+        };
+
+        updateRange();
+
+        window.addEventListener('resize', updateRange);
+
+        return () => {
+            window.removeEventListener('resize', updateRange);
+        };
+    }, []);
+
 
     const productDataGrouping = [];
     for (let i = 0; i < Math.ceil(productsData.length / productDataRange); i++) {
@@ -42,9 +63,9 @@ export const FeaturedProducts = () => {
     }
 
     const productsRender = (productData: typeof productsData) => (
-        productData.slice(0, 3).map((data, index) => {
+        productData.slice(0, 3).map((data) => {
             return (
-                <Link to='/' key={index}>
+                <Link to='/' key={data.id}>
                     <FeaturedProductsContainer >
                         <FeaturedImg src={''} />
                         <FeaturedProductInformation>

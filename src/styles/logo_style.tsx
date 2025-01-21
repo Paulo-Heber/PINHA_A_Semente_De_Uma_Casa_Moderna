@@ -11,6 +11,10 @@ export const LogoContainer = styled.div`
     color:${colors.tertiaryColor};
     text-align:start;
     font-size:4rem;
+
+    @media (max-width: 820px) {
+     width: 9.9rem;
+    }
     
     & > * {
         background-color:${colors.secondaryColor}; 
@@ -21,10 +25,16 @@ export const LogoContainer = styled.div`
         align-items: center;
         justify-content: center;
     }
+
+    
 `
 export const Badge = styled.img`
     max-block-size: 4.58rem;
     margin-right:13px;
+
+    @media (max-width: 820px) {
+        margin:0;
+    }
 `
 
 export const LogoText = styled.div`
