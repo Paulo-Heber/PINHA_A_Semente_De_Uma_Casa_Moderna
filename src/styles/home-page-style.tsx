@@ -1,29 +1,22 @@
 import styled from "styled-components";
 import { colors } from "../components/variables/variables";
 
-export const HomePageConteiner = styled.div`
-grid-template-columns:25.5rem 1fr;
+export const HomePageConteiner = styled.div<{ $togglemenuprop: boolean }>`
+grid-template-columns:${(prop) => (prop.$togglemenuprop ? "15rem 1fr" : ".5rem 1fr")} ;
 grid-template-rows: 13rem 1fr;
 display:grid;
+transition:ease 1s;
 
 grid-template-areas:
 "header header "
 "navegation products";
 
-@media (max-width: 430px) {
-  grid-template-columns:1fr;
+@media (max-width: 480px) {
+  grid-template-columns:.5rem;
   grid-template-rows: 1fr;
   display:grid;
-
-  grid-template-areas:
-  "header "
-  "navegation "
-  "products ";
 }
-
 `
-
-
 
 export const ProductsSection = styled.div`
 background-color: ${colors.tertiaryColor};

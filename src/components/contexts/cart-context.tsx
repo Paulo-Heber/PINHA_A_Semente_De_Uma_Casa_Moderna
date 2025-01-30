@@ -58,6 +58,3 @@ export const CartContextProvider: React.FC<CartContextProps> = ({ children }) =>
         </CartContext.Provider>
     )
 }
-
-
-/**/

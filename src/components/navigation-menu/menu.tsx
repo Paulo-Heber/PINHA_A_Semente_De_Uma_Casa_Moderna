@@ -1,29 +1,38 @@
 import { useState } from "react";
-import { Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title, MaterialList, FilterSelector } from "../../styles/menu-style";
+import { Rooms, RoomsLabel, MenuConteiner, MenuFilters, Title, MaterialList, FilterSelector, FiltersContainer } from "../../styles/menu-style";
 import { Link } from "react-router-dom";
+import { faBath, faBed, faChevronCircleLeft, faCouch, faJugDetergent, faKitchenSet, faStapler, faTools, faTree, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useToggleMenuContext } from "../../hooks/useToggleMenuContext";
+
+type Room = {
+    name: string;
+    icon: IconDefinition;
+}
 
 type menuStructure = {
-    title: string,
-    rooms: string[],
+    rooms: Room[],
     material?: string[]
 }
 
 type HomepageMenu = {
     environments: menuStructure;
-    materials: menuStructure;
 }
 
 const HomepageMenu: HomepageMenu = {
     environments: {
-        title: 'AMBIENTES',
-        rooms: ['Sala', 'Cozinha', 'Quarto', 'Banheiro', 'Escritório', 'Área de serviço']
+        rooms: [
+            { name: "Sala", icon: faCouch },
+            { name: "Cozinha", icon: faKitchenSet },
+            { name: "Quarto", icon: faBed },
+            { name: "Banheiro", icon: faBath },
+            { name: "Escritório", icon: faStapler },
+            { name: "Lavanderia", icon: faJugDetergent },
+            { name: "Mdf's", icon: faTree },
+            { name: "Ferragens", icon: faTools },
+        ]
     },
 
-    materials: {
-        title: 'MATERIAIS',
-        rooms: ["mdf's", 'Ferragens'],
-        material: ["Material1", "Material2", "Material3", "Material4", "Material5"]
-    }
 }
 
 const RetornoDaAPI = {
@@ -32,8 +41,22 @@ const RetornoDaAPI = {
 
 export function Menu() {
 
+    const { toggleMenu, handleMenuToggle } = useToggleMenuContext()
     const menuEntries = Object.entries(HomepageMenu);
-    const [selectedFilter, setSelectedFilter] = useState<string>('')
+    const [selectedFilter, setSelectedFilter] = useState<string>('');
+
+
+    // const stateOn: ToggleMenu = {
+    //     padding: 'padding:4.2rem 1.5rem;',
+    //     ColumnWidht: '15rem',
+    // }
+
+    // const stateOff: ToggleMenu = {
+    //     padding: 0,
+    //     ColumnWidht: '.5rem',
+    // }
+
+
 
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
     const selectRoom = (room: string) => {
@@ -50,52 +73,65 @@ export function Menu() {
 
     if (PageID === '/') {
         return (
-            <MenuConteiner>
-                {menuEntries.map(([key, value]) => {
-                    const sectionTitle = value.title;
+            <MenuConteiner $togglemenuprop={toggleMenu}>
+                <FiltersContainer>
+                    {menuEntries.map(([key, value]) => {
+                        const RoomsList = value.rooms.map((room, index) => {
 
-                    const RoomsList = value.rooms.map((room, index) => {
+                            if (room.name === 'Ferragens') {
+                                return (
+                                    <Link key={index} to={'/production_materials'}>
+                                        <Rooms key={index} onClick={() => selectRoom(room.name)}>
+                                            <RoomsLabel checked={room.name === selectedFilter}>
+                                                <FilterSelector
+                                                    type="radio"
+                                                    name="filter"
+                                                    value={room.name} />
 
-                        if (room === 'Ferragens') {
-                            return (
-                                <Link key={room} to={'/production_materials'}>
-                                    <Rooms key={index} onClick={() => selectRoom(room)}>
-                                        <RoomsLabel checked={room === selectedFilter}>
+                                                <FiltersContainer>
+                                                    <FontAwesomeIcon icon={room.icon} />
+                                                    <p>{room.name}</p>
+                                                </FiltersContainer>
+
+                                            </RoomsLabel>
+                                        </Rooms>
+                                    </Link>
+                                )
+                            } else {
+                                return (
+                                    <Rooms key={index} onClick={() => selectRoom(room.name)}>
+                                        <RoomsLabel checked={room.name === selectedFilter}>
                                             <FilterSelector
                                                 type="radio"
                                                 name="filter"
-                                                value={room} />{room}
+                                                value={room.name} />
+                                            <FiltersContainer>
+                                                <FontAwesomeIcon icon={room.icon} />
+                                                <p>{room.name}</p>
+                                            </FiltersContainer>
                                         </RoomsLabel>
                                     </Rooms>
-                                </Link>
-                            )
-                        } else {
-                            return (
-                                <Rooms key={index} onClick={() => selectRoom(room)}>
-                                    <RoomsLabel checked={room === selectedFilter}>
-                                        <FilterSelector
-                                            type="radio"
-                                            name="filter"
-                                            value={room} />{room}
-                                    </RoomsLabel>
-                                </Rooms>
-                            )
-                        }
-                    })
+                                )
+                            }
+                        })
 
 
-                    return (
-                        <MenuFilters key={key}>
-                            <Title> {sectionTitle}</Title>
-                            <ul>{RoomsList}</ul>
-                        </MenuFilters>
-                    )
 
-                })}
+                        return (
+                            <MenuFilters key={key}>
+                                <ul>{RoomsList}</ul>
+                            </MenuFilters>
+                        )
+
+                    })}
+                </FiltersContainer>
+                <button onClick={() => { handleMenuToggle(toggleMenu) }}>
+                    <FontAwesomeIcon icon={faChevronCircleLeft} />
+                </button>
             </MenuConteiner>)
     } else {
         return (
-            <MenuConteiner>
+            <MenuConteiner $togglemenuprop={toggleMenu} >
                 <Title>SUMÁRIO</Title>
                 <MaterialList >
                     {UtensiliosDeMontagem}
@@ -106,6 +142,7 @@ export function Menu() {
 }
 
 /*
+
 PARA O FILTRO
 Tenho que verificar se a room do item é igual a room do selectedFilter
 a room do item vem do productsData

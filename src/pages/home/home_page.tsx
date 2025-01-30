@@ -5,26 +5,27 @@ import { HomePageConteiner, ProductCardSection, ProductsSection } from "../../st
 import { ProductCard } from "../../components/products-cards/product-card.tsx";
 
 import { HighlightsCarousel } from "../../components/carrocel/carrocel.tsx";
+import { useToggleMenuContext } from "../../hooks/useToggleMenuContext.tsx";
 export function HomePage() {
+    const { toggleMenu } = useToggleMenuContext()
+    
     return (
-        <HomePageConteiner>
-            <Header />
-            <Menu />
-            <ProductsSection>
-                <HighlightsCarousel />
-                <ProductCardSection>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                </ProductCardSection>
-            </ProductsSection>
-            {/* --------------------SERÁ EXCLUIDO-------------- */}
-            {/* <Navegation /> */}
-            {/* --------------------SERÁ EXCLUIDO-------------- */}
-        </HomePageConteiner>
+            <HomePageConteiner $togglemenuprop={toggleMenu}>
+                <Header />
+                <Menu />
+                <ProductsSection>
+                    <HighlightsCarousel />
+                    <ProductCardSection>
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                    </ProductCardSection>
+                </ProductsSection>
+            </HomePageConteiner>
+       
     )
 }
 

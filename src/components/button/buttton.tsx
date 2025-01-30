@@ -5,7 +5,6 @@ import { CartItem } from "../contexts/cart-context";
 import { ReactNode } from 'react';
 interface ButtonProps {
     to?: string;
-    buttonType?: string;
     label?: ReactNode;
     itemId?: number;
 }

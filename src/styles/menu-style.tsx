@@ -1,27 +1,70 @@
 import styled from "styled-components";
 import { colors } from "../components/variables/variables";
 
-export const MenuConteiner = styled.div`
+
+
+export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
   grid-area:navegation;
   background-color:${colors.secondaryColor};
   color:#ffffff;
   display:flex;
   flex-direction:column;
-  padding:4.2rem 1.5rem; 
+  transition:padding ease 1s;
+  padding:${(props) => (props.$togglemenuprop ? "4.2rem 1.5rem" : "0")}; 
   max-height:79.7vh;
-  gap:2rem;
-  top:9rem;
-  overflow-y:scroll;
+  gap:2rem;  
+  position:relative;
+  border-right:5px solid #272727;
+
+  
+  & > :last-child{
+  color: ${colors.tertiaryColor};
+  font-size:1.3rem;
+  padding:.3rem;
+  background-color:#272727;
+  position: absolute;
+  top:35%;
+  right:-1.9rem;
+  border-radius:0 3rem 3rem 0;
+  border:none;
+  height:20rem;
+  cursor:pointer;
+  transition:ease;
+
+  &:hover{
+     background-color:${colors.secondaryColor};
+     transition:0s;
+     font-size:1.8rem;
+    }
+
+    &:active{
+     background-color:#272727;
+    }
+     
+&>*{
+    rotate:${(props) => (props.$togglemenuprop ? "0" : "180deg")}; 
+    transition:ease .5s;
+}
+
+  `
+
+export const Title = styled.h2`
+  align-self: center;
+  margin-bottom:.4rem;
+  font-size:2rem;
+  `
+export const FiltersContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  overflow-y: scroll;
+  font-size:2.5rem;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 1.2rem; 
   }
 
-  @media (max-width: 430px) {
-  // text-align:center;
-  // flex-direction:row;
- 
-}
   
   &::-webkit-scrollbar-thumb {
     background-color:${colors.tertiaryColor};
@@ -30,24 +73,12 @@ export const MenuConteiner = styled.div`
   }
   `
 
-export const Title = styled.h2`
-  align-self: center;
-  margin-bottom:.4rem;
-  font-size:2rem;
-`
-
 export const MenuFilters = styled.div`
-display:flex;
-flex-direction:column;
+  display:flex;
+  flex-direction:column;
 min-width:100%;
 text-aling-center;
 
-& > :last-child{
-  @media (max-width: 430px) {
-    display: flex;
-    justify-content:center;
-  flex-direction:row;
-}}
 `
 export const Rooms = styled.li`
 display:flex;
@@ -60,12 +91,13 @@ export const RoomsLabel = styled.label<{ checked: boolean }>`
   flex: 1;
   padding:1.5rem;
   background-color: ${(props) => (props.checked ? "#272727" : "#151515")}; 
-  border-left: solid .2rem ${(props) => (props.checked ? "#ffffff" : "#151515")}; 
+  border-bottom: solid .2rem ${(props) => (props.checked ? "#ffffff" : "#151515")}; 
   cursor: pointer;
   transition:.2s;
+  border-radius:1rem;
 
   &:hover {
-    border-left:solid .2rem #ffffff;
+   
     background-color: #272727;
     cursor:pointer;
     font-size:1.7rem;
