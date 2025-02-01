@@ -1,17 +1,15 @@
 import styled from "styled-components";
 import { colors } from "../components/variables/variables";
 
-
-
 export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
   grid-area:navegation;
   background-color:${colors.secondaryColor};
   color:#ffffff;
   display:flex;
+  max-height:calc(100vh - 13rem);
   flex-direction:column;
   transition:padding ease 1s;
   padding:${(props) => (props.$togglemenuprop ? "4.2rem 1.5rem" : "0")}; 
-  max-height:79.7vh;
   gap:2rem;  
   position:relative;
   border-right:5px solid #272727;
@@ -57,15 +55,13 @@ export const FiltersContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items:center;
-  overflow-y: scroll;
+
   font-size:2.5rem;
   overflow-x: hidden;
-
   &::-webkit-scrollbar {
     width: 1.2rem; 
   }
 
-  
   &::-webkit-scrollbar-thumb {
     background-color:${colors.tertiaryColor};
     border-radius: 10px;
@@ -76,20 +72,17 @@ export const FiltersContainer = styled.div`
 export const MenuFilters = styled.div`
   display:flex;
   flex-direction:column;
-min-width:100%;
-text-aling-center;
-
+  min-width:100%;
+  text-aling-center;
 `
 export const Rooms = styled.li`
-display:flex;
-margin-bottom:1rem;
-color:#ffffff;
-font-size:3.2rem;
-
+  display:flex;
+  color:#ffffff;
+  font-size:3.2rem;
 `
 export const RoomsLabel = styled.label<{ checked: boolean }>`
   flex: 1;
-  padding:1.5rem;
+  padding-block:1.2rem;
   background-color: ${(props) => (props.checked ? "#272727" : "#151515")}; 
   border-bottom: solid .2rem ${(props) => (props.checked ? "#ffffff" : "#151515")}; 
   cursor: pointer;
@@ -97,7 +90,6 @@ export const RoomsLabel = styled.label<{ checked: boolean }>`
   border-radius:1rem;
 
   &:hover {
-   
     background-color: #272727;
     cursor:pointer;
     font-size:1.7rem;

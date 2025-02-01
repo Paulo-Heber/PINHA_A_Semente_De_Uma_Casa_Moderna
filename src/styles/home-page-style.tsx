@@ -6,27 +6,19 @@ grid-template-columns:${(prop) => (prop.$togglemenuprop ? "15rem 1fr" : ".5rem 1
 grid-template-rows: 13rem 1fr;
 display:grid;
 transition:ease 1s;
-
 grid-template-areas:
 "header header "
 "navegation products";
-
-@media (max-width: 480px) {
-  grid-template-columns:.5rem;
-  grid-template-rows: 1fr;
-  display:grid;
-}
 `
 
 export const ProductsSection = styled.div`
 background-color: ${colors.tertiaryColor};
 grid-area:products;
-
+align-items: center;
+max-height:calc(100vh - 13rem);
+overflow-y: scroll;
 display:flex;
-max-height:79.7vh;
 flex-direction: column;
-
-overflow-y:auto;
 
 &::-webkit-scrollbar {
     width: 1.2rem; 
@@ -54,5 +46,7 @@ export const ProductCardSection = styled.div`
   flex-wrap: wrap;
   justify-content:center;
   gap:2rem;
+  max-width:110rem;
+
   `
 

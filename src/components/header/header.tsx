@@ -42,10 +42,7 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(document.documentElement.clientWidth <= 480);
-    const mobile = document.documentElement.clientWidth <= 480;
-    const width = document.documentElement.clientWidth;
-    console.log("isMobile:", mobile);
-    console.log('width:', width);
+    
     handleResize()
 
     window.addEventListener('resize', handleResize);
@@ -74,7 +71,7 @@ export const Header: React.FC = () => {
 
       <Searce>
         <SrcInput value={pesquisa} onChange={handlePesquisaChange} placeholder='Ex: Casa' />
-       <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon icon={faSearch} />
       </Searce>
 
       <UserSpace>

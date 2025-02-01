@@ -45,19 +45,6 @@ export function Menu() {
     const menuEntries = Object.entries(HomepageMenu);
     const [selectedFilter, setSelectedFilter] = useState<string>('');
 
-
-    // const stateOn: ToggleMenu = {
-    //     padding: 'padding:4.2rem 1.5rem;',
-    //     ColumnWidht: '15rem',
-    // }
-
-    // const stateOff: ToggleMenu = {
-    //     padding: 0,
-    //     ColumnWidht: '.5rem',
-    // }
-
-
-
     //REUTILIZAR ESSE CÓDIGO QUANDO OS CARDS DE MÓVEIS ESTIVEREM PRONTOS
     const selectRoom = (room: string) => {
         setSelectedFilter(room)
