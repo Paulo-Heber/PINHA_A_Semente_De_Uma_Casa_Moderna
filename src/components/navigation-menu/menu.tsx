@@ -68,7 +68,11 @@ export function Menu() {
                             if (room.name === 'Ferragens') {
                                 return (
                                     <Link key={index} to={'/production_materials'}>
-                                        <Rooms key={index} onClick={() => selectRoom(room.name)}>
+                                        <Rooms
+                                            key={index}
+                                            $togglemenuprop={toggleMenu}
+                                            onClick={() => selectRoom(room.name)}>
+
                                             <RoomsLabel checked={room.name === selectedFilter}>
                                                 <FilterSelector
                                                     type="radio"
@@ -86,7 +90,7 @@ export function Menu() {
                                 )
                             } else {
                                 return (
-                                    <Rooms key={index} onClick={() => selectRoom(room.name)}>
+                                    <Rooms key={index} $togglemenuprop={toggleMenu} onClick={() => selectRoom(room.name)}>
                                         <RoomsLabel checked={room.name === selectedFilter}>
                                             <FilterSelector
                                                 type="radio"

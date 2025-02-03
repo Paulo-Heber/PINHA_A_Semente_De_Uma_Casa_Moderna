@@ -46,8 +46,8 @@ const Searce = styled.div`
         color:gray;
     }
 @media (max-width:400px){
-&> input{
-max-width:20rem;}
+    &> input{
+        max-width:20rem;}
 }
 `
 const UserSpace = styled.div`

@@ -85,9 +85,10 @@ export const MenuFilters = styled.div`
   text-aling-center;
 
 `
-export const Rooms = styled.li`
+export const Rooms = styled.li<{ $togglemenuprop: boolean }>`
   display:flex;
   color:#ffffff;
+  color:${(props) => (props.$togglemenuprop ? '#ffffff' : '#272727')}; 
   font-size:3.2rem;
 `
 export const RoomsLabel = styled.label<{ checked: boolean }>`
