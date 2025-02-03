@@ -9,7 +9,7 @@ export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
   max-height:calc(100vh - 13rem);
   flex-direction:column;
   transition:padding ease 1s;
-  padding:${(props) => (props.$togglemenuprop ? "4.2rem .2rem" : "0")}; 
+  padding:${(props) => (props.$togglemenuprop ? "4.2rem 0" : "0")}; 
   gap:2rem;  
   position:relative;
   border-right:5px solid #272727;
@@ -20,6 +20,7 @@ export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
   font-size:1.3rem;
   padding:.3rem;
   background-color:#272727;
+  z-index:1;
   position: absolute;
   top:35%;
   right:-1.9rem;

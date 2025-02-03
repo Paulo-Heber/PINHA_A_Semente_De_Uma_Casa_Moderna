@@ -6,7 +6,7 @@ const Head = styled.header`
     background-color:${colors.primaryColor};
     display:flex;
     justify-content: space-between;
-    width: 100%;
+    max-width: 100%;
     padding:1.8rem 2.9rem;
     flex:1; 
 
@@ -31,6 +31,7 @@ const Searce = styled.div`
         background-color:${colors.tertiaryColor};
         border-radius:4rem;
         padding-left:3rem;
+        min-width:20rem;
         font-size:2rem;
         height:4.8rem;
         display:flex;
@@ -44,7 +45,10 @@ const Searce = styled.div`
         font-size:2.5rem;
         color:gray;
     }
-
+@media (max-width:400px){
+&> input{
+max-width:20rem;}
+}
 `
 const UserSpace = styled.div`
 display:flex;
