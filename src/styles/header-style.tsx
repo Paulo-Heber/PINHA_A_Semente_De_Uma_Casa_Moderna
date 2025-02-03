@@ -5,16 +5,22 @@ const Head = styled.header`
     grid-area: header;
     background-color:${colors.primaryColor};
     display:flex;
+     align-items: center;
     justify-content: space-between;
     max-width: 100%;
     padding:1.8rem 2.9rem;
     flex:1; 
 
-& >:first-child{
- @media (max-width: 480px) {
+    @media (max-width: 480px) {
+        padding:1rem;  
+       
+    }
+
+    & >:first-child{
+        @media (max-width: 480px) {
             scale:70%;   
         }
-}
+    }
     
     & > a{
         &>*{
