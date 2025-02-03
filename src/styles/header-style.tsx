@@ -10,21 +10,31 @@ const Head = styled.header`
     padding:1.8rem 2.9rem;
     flex:1; 
 
+& >:first-child{
+ @media (max-width: 480px) {
+            scale:70%;   
+        }
+}
+    
     & > a{
         &>*{
             background:transparent;
             border:none;
         }
     }
+        
 `
 
 const Searce = styled.div`
     align-items: center;
     position: relative;
     display:flex;
-    margin-inline:3rem 0;
     flex:1;
     margin-inline:1.5rem;
+
+    @media (max-width: 400px) {
+    margin-inline:0;
+    }
     
     &> input {
         border: solid .2rem ${colors.secondaryColor};

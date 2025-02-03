@@ -15,6 +15,8 @@ export const LogoContainer = styled.div`
     @media (max-width: 820px) {
      width: 9.9rem;
     }
+
+    
     
     & > * {
         background-color:${colors.secondaryColor}; 
