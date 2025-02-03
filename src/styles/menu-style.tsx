@@ -9,7 +9,7 @@ export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
   max-height:calc(100vh - 13rem);
   flex-direction:column;
   transition:padding ease 1s;
-  padding:${(props) => (props.$togglemenuprop ? "4.2rem 1.5rem" : "0")}; 
+  padding:${(props) => (props.$togglemenuprop ? "4.2rem .2rem" : "0")}; 
   gap:2rem;  
   position:relative;
   border-right:5px solid #272727;
@@ -28,6 +28,7 @@ export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
   height:20rem;
   cursor:pointer;
   transition:ease;
+  
 
   &:hover{
      background-color:${colors.secondaryColor};
@@ -44,7 +45,7 @@ export const MenuConteiner = styled.div<{ $togglemenuprop: boolean }>`
     transition:ease .5s;
 }
 
-  `
+`
 
 export const Title = styled.h2`
   align-self: center;
@@ -55,15 +56,21 @@ export const FiltersContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items:center;
-
   font-size:2.5rem;
   overflow-x: hidden;
+  
+
+  &>*{
+   padding-inline : 1rem;
+   }
+  
   &::-webkit-scrollbar {
     width: 1.2rem; 
   }
 
   &::-webkit-scrollbar-thumb {
     background-color:${colors.tertiaryColor};
+    margin-left:5rem;
     border-radius: 10px;
     border: 3px solid ${colors.secondaryColor};
   }
@@ -71,9 +78,11 @@ export const FiltersContainer = styled.div`
 
 export const MenuFilters = styled.div`
   display:flex;
+ 
   flex-direction:column;
   min-width:100%;
   text-aling-center;
+
 `
 export const Rooms = styled.li`
   display:flex;
@@ -86,6 +95,7 @@ export const RoomsLabel = styled.label<{ checked: boolean }>`
   background-color: ${(props) => (props.checked ? "#272727" : "#151515")}; 
   border-bottom: solid .2rem ${(props) => (props.checked ? "#ffffff" : "#151515")}; 
   cursor: pointer;
+  margin-bottom:.5rem;
   transition:.2s;
   border-radius:1rem;
 
