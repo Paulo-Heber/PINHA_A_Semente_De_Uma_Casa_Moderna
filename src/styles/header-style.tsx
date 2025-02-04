@@ -5,7 +5,7 @@ const Head = styled.header`
     grid-area: header;
     background-color:${colors.primaryColor};
     display:flex;
-     align-items: center;
+    align-items: center;
     justify-content: space-between;
     max-width: 100%;
     padding:1.8rem 2.9rem;

@@ -9,6 +9,10 @@ transition:ease 1s;
 grid-template-areas:
 "header header "
 "navegation products";
+
+@media(max-width:480px){
+  grid-template-rows:${(prop) => (prop.$togglemenuprop ? "13rem 1fr" : "9rem 1fr")} ;
+}
 `
 
 export const ProductsSection = styled.div`
